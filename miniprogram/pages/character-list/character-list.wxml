@@ -1,0 +1,89 @@
+<!-- 角色列表 · A-Z 索引 + 家族筛选 -->
+<view class="page">
+  <!-- 搜索 + 筛选 -->
+  <view class="header-section">
+    <search-bar placeholder="搜索角色名称..." bindsearch="onSearch" />
+    <view class="filter-row">
+      <view class="filter-btn {{showFilter ? 'active' : ''}}" bindtap="toggleFilter">
+        <text>{{selectedHouse ? houseOptions[selectedHouse] : '全部家族'}}</text>
+        <text class="arrow">{{showFilter ? '▲' : '▼'}}</text>
+      </view>
+      <view class="result-hint text-muted" wx:if="{{allCharacters.length}}">
+        {{allCharacters.length}} 位角色
+      </view>
+    </view>
+    <!-- 家族筛选下拉 -->
+    <view class="filter-drop" wx:if="{{showFilter}}">
+      <text
+        wx:for="{{houseOptions}}"
+        wx:key="value"
+        class="filter-option {{selectedHouse === item.value ? 'active' : ''}}"
+        data-value="{{item.value}}"
+        bindtap="onHouseFilter"
+      >{{item.label}}</text>
+    </view>
+  </view>
+
+  <!-- 骨架屏 -->
+  <view wx:if="{{loading}}" class="skeleton-list">
+    <view wx:for="{{[1,2,3,4,5]}}" wx:key="*this" class="skeleton-row">
+      <view class="skeleton skeleton-avatar"></view>
+      <view class="skeleton-info">
+        <view class="skeleton skeleton-name"></view>
+        <view class="skeleton skeleton-text"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分组角色列表 -->
+  <view wx:else class="char-list-wrap">
+    <view wx:for="{{groupedList}}" wx:key="letter" class="letter-group">
+      <view class="letter-header" id="letter-{{item.letter}}">
+        <text class="letter-label">{{item.letter}}</text>
+      </view>
+      <view
+        wx:for="{{item.characters}}"
+        wx:key="_id"
+        class="char-row card"
+        data-id="{{item._id}}"
+        bindtap="onCharacterTap"
+      >
+        <view class="char-avatar">
+          <text>{{item.name[0]}}</text>
+        </view>
+        <view class="char-info">
+          <view class="char-name">{{item.name}}</view>
+          <view class="char-titles text-secondary">{{item.titles[0] || ''}}</view>
+        </view>
+        <view class="char-status">
+          <text wx:if="{{item.status === 'alive'}}" class="tag tag-status-alive">存活</text>
+          <text wx:elif="{{item.status === 'dead'}}" class="tag tag-status-dead">已故</text>
+          <text wx:elif="{{item.status === 'resurrected'}}" class="tag tag-fire">复活</text>
+          <text wx:else class="tag tag-ice">未知</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空 -->
+    <view wx:if="{{empty}}" class="empty-state">
+      <text class="icon">🔍</text>
+      <text class="text">没有匹配的角色</text>
+    </view>
+  </view>
+
+  <!-- A-Z 侧边索引栏 -->
+  <view class="letter-bar" bindtouchmove="onLetterTouchMove" bindtouchend="onLetterTouchEnd">
+    <view
+      wx:for="{{letterIndex}}"
+      wx:key="*this"
+      class="letter-bar-item {{activeLetter === item ? 'active' : ''}}"
+      data-letter="{{item}}"
+      bindtap="onLetterTap"
+    >{{item}}</view>
+  </view>
+
+  <!-- 字母提示浮层 -->
+  <view class="letter-hint" wx:if="{{showLetterHint}}">
+    <text>{{letterHint}}</text>
+  </view>
+</view>

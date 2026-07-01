@@ -1,0 +1,3 @@
+.map-wrap { position:relative; width:100%; border-radius:16rpx; overflow:hidden; background:var(--bg-card); }
+.map-base { width:100%; display:block; }
+.map-highlight { position:absolute; top:0; left:0; width:100%; opacity:0.55; pointer-events:none; z-index:2; }

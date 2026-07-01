@@ -1,0 +1,126 @@
+/* === 马丁如是说 === */
+.page {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+/* 头图 */
+.header-banner {
+  text-align: center;
+  padding: 48rpx 32rpx 32rpx;
+  background: linear-gradient(180deg, rgba(212,168,83,0.08) 0%, transparent 100%);
+  border-bottom: 1rpx solid var(--border-color);
+}
+
+.banner-icon {
+  font-size: 64rpx;
+  margin-bottom: 16rpx;
+}
+
+.banner-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12rpx;
+  letter-spacing: 8rpx;
+}
+
+.banner-subtitle {
+  font-size: 24rpx;
+  margin-bottom: 8rpx;
+}
+
+.banner-note {
+  font-size: 20rpx;
+  font-style: italic;
+}
+
+/* 分类滚动 */
+.category-scroll {
+  white-space: nowrap;
+  padding: 24rpx;
+}
+
+.category-list {
+  display: inline-flex;
+  gap: 16rpx;
+}
+
+.category-chip {
+  display: inline-block;
+  padding: 12rpx 28rpx;
+  background: var(--bg-card);
+  border: 1rpx solid var(--border-color);
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.category-chip.active {
+  background: rgba(212,168,83,0.18);
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* 条目 */
+.entry-list {
+  padding: 0 24rpx;
+}
+
+.entry-card {
+  margin-bottom: 24rpx;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.entry-date {
+  font-size: 22rpx;
+}
+
+.entry-title {
+  margin-bottom: 16rpx;
+  line-height: 1.4;
+}
+
+.entry-quote {
+  position: relative;
+  padding: 8rpx 0 8rpx 24rpx;
+  border-left: 4rpx solid var(--gold);
+}
+
+.quote-mark {
+  position: absolute;
+  left: -12rpx;
+  top: -8rpx;
+  font-size: 48rpx;
+  color: var(--gold);
+  font-family: Georgia, serif;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.entry-tags {
+  margin-top: 16rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+/* 底部 */
+.footer-note {
+  text-align: center;
+  padding: 32rpx 48rpx;
+}
+
+.footer-note text {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 22rpx;
+}

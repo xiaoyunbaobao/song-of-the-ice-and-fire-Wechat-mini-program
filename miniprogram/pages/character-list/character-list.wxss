@@ -1,0 +1,153 @@
+/* === 角色列表 · A-Z 索引 === */
+.page {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  position: relative;
+}
+
+.header-section { padding: 24rpx 24rpx 0; }
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16rpx;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 24rpx;
+  background: var(--bg-card);
+  border: 1rpx solid var(--border-color);
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.filter-btn.active { border-color: var(--gold); color: var(--gold); }
+.arrow { font-size: 18rpx; margin-left: 8rpx; }
+.result-hint { font-size: 24rpx; }
+
+.filter-drop {
+  margin-top: 12rpx;
+  background: var(--bg-card);
+  border: 1rpx solid var(--border-color);
+  border-radius: 16rpx;
+  padding: 8rpx 16rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.filter-option {
+  padding: 8rpx 20rpx;
+  border-radius: 16rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.03);
+}
+
+.filter-option.active { background: rgba(212,168,83,0.18); color: var(--gold); }
+
+.char-list-wrap { padding: 16rpx 24rpx 16rpx 24rpx; padding-right: 64rpx; }
+
+.letter-group { margin-bottom: 8rpx; }
+
+.letter-header { padding: 20rpx 12rpx 12rpx; margin-top: 8rpx; }
+
+.letter-label {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--gold-light);
+  padding-left: 12rpx;
+  border-left: 4rpx solid var(--gold);
+}
+
+.char-row {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 20rpx;
+  margin-bottom: 8rpx;
+}
+
+.char-avatar {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.char-avatar text { font-size: 28rpx; font-weight: 700; color: var(--bg-card); }
+.char-info { flex: 1; overflow: hidden; }
+.char-name { font-size: 28rpx; font-weight: 600; color: var(--text-primary); }
+.char-titles { font-size: 22rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.char-status { flex-shrink: 0; margin-left: 8rpx; }
+
+.skeleton-list { padding: 24rpx; }
+.skeleton-row { display: flex; align-items: center; padding: 18rpx 20rpx; margin-bottom: 8rpx; background: var(--bg-card); border-radius: 16rpx; }
+.skeleton-avatar { width: 68rpx; height: 68rpx; border-radius: 50%; }
+.skeleton-info { flex: 1; margin-left: 16rpx; }
+.skeleton-name { width: 140rpx; height: 28rpx; margin-bottom: 10rpx; }
+.skeleton-text { width: 240rpx; height: 22rpx; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 8rpx;
+}
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.letter-bar {
+  position: fixed;
+  right: 4rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rpx;
+  padding: 8rpx 4rpx;
+  background: rgba(30,24,18,0.85);
+  border-radius: 20rpx;
+}
+
+.letter-bar-item {
+  width: 40rpx;
+  height: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20rpx;
+  color: var(--text-muted);
+  border-radius: 6rpx;
+}
+
+.letter-bar-item.active { color: var(--gold); font-weight: 700; font-size: 22rpx; }
+
+.letter-hint {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  width: 120rpx;
+  height: 120rpx;
+  background: rgba(212,168,83,0.9);
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-hint text { font-size: 60rpx; font-weight: 700; color: var(--bg-primary); }

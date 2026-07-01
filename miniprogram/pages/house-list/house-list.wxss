@@ -1,0 +1,139 @@
+/* === 家族列表页 === */
+.page {
+  padding: 24rpx;
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+/* 头部区域 */
+.header-section {
+  margin-bottom: 24rpx;
+}
+
+/* 网格布局 */
+.house-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.house-grid::after {
+  content: '';
+  flex: auto;
+}
+
+.house-card {
+  width: calc(50% - 10rpx);
+  padding: 24rpx 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.house-card-sigil {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+  border: 2rpx solid var(--border-color);
+}
+
+.sigil-emoji { font-size: 48rpx; }
+.sigil-img { width: 100%; height: 100%; }
+
+.house-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.house-card-name {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6rpx;
+}
+
+.house-card-words {
+  font-size: 22rpx;
+  font-style: italic;
+  margin-bottom: 10rpx;
+  min-height: 30rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.house-card-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.house-card-region {
+  font-size: 22rpx;
+}
+
+.house-card-seat {
+  font-size: 20rpx;
+}
+
+/* 骨架屏 */
+.skeleton-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skeleton-card {
+  width: calc(50% - 10rpx);
+  margin-bottom: 20rpx;
+  padding: 24rpx 20rpx;
+  background: var(--bg-card);
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skeleton-sigil {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-bottom: 16rpx;
+}
+
+.skeleton-house-name {
+  width: 140rpx;
+  height: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.skeleton-words {
+  width: 180rpx;
+  height: 24rpx;
+  margin-bottom: 10rpx;
+}
+
+.skeleton-region {
+  width: 100rpx;
+  height: 22rpx;
+}
+
+/* 加载更多 */
+.load-more {
+  text-align: center;
+  padding: 32rpx 0;
+  width: 100%;
+}

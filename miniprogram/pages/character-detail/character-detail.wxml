@@ -1,0 +1,172 @@
+<!-- 角色详情页 -->
+<view class="page" wx:if="{{!loading && character}}">
+  <!-- 头部卡片 -->
+  <view class="hero-card" style="background: var(--bg-card);">
+    <view class="hero-header">
+      <view class="hero-avatar">
+        <text class="hero-avatar-text">{{character.name[0]}}</text>
+      </view>
+      <view class="hero-info">
+        <view class="hero-name">{{character.name}}</view>
+        <view class="hero-aliases text-gold" wx:if="{{character.aliases && character.aliases.length}}">
+          {{character.aliases.join('、')}}
+        </view>
+      </view>
+      <view class="hero-status">
+        <text wx:if="{{character.status === 'alive'}}" class="tag tag-status-alive">存活</text>
+        <text wx:elif="{{character.status === 'dead'}}" class="tag tag-status-dead">已故</text>
+        <text wx:elif="{{character.status === 'resurrected'}}" class="tag tag-fire">已复活</text>
+        <text wx:else class="tag tag-ice">未知</text>
+      </view>
+    </view>
+
+    <!-- 家族信息 -->
+    <view class="hero-house card-inner" wx:if="{{character._house}}" bindtap="onHouseTap">
+      <view class="house-sigil">
+        {{character._house.sigil === '冰原狼' ? '🐺' : character._house.sigil === '三头龙' ? '🐉' : character._house.sigil === '雄狮' ? '🦁' : '🏰'}}
+      </view>
+      <view class="house-detail">
+        <view class="house-name text-gold">{{character._house.name}}</view>
+        <view class="house-words text-secondary">"{{character._house.words}}"</view>
+      </view>
+      <view class="house-region text-muted">{{character._house.region}} · {{character._house.seat}}</view>
+    </view>
+
+    <!-- 详细信息 -->
+    <view class="hero-meta">
+      <view class="meta-item" wx:if="{{character.titles && character.titles.length}}">
+        <text class="meta-label">头衔</text>
+        <view class="meta-value">
+          <text wx:for="{{character.titles}}" wx:key="*this" class="tag tag-gold">{{item}}</text>
+        </view>
+      </view>
+      <view class="meta-item" wx:if="{{character.culture}}">
+        <text class="meta-label">文化</text>
+        <text class="meta-value text-secondary">{{character.culture}}</text>
+      </view>
+      <view class="meta-item" wx:if="{{character.actorName}}">
+        <text class="meta-label">演员</text>
+        <text class="meta-value text-secondary">{{character.actorName}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Tab 切换：原著 / 剧集 / 差异对比 -->
+  <view class="tab-bar">
+    <view class="tab-item {{activeTab === 'book' ? 'active' : ''}}" data-tab="book" bindtap="onTabChange">
+      <text>📖 原著</text>
+    </view>
+    <view class="tab-item {{activeTab === 'show' ? 'active' : ''}}" data-tab="show" bindtap="onTabChange">
+      <text>📺 剧集</text>
+    </view>
+    <view class="tab-item {{activeTab === 'diff' ? 'active' : ''}}" data-tab="diff" bindtap="onTabChange">
+      <text>⚖️ 差异</text>
+    </view>
+  </view>
+
+  <!-- 原著描述 -->
+  <view class="tab-content" wx:if="{{activeTab === 'book'}}">
+    <view class="content-card card">
+      <view class="content-title text-subtitle">原著描写</view>
+      <view class="content-body text-body">
+        {{character.bookBio || '原著资料整理中...'}}
+      </view>
+    </view>
+    <view class="content-card card" wx:if="{{character.appearedIn.books.length}}">
+      <view class="content-title text-subtitle">出场书卷</view>
+      <view class="tag-list">
+        <text wx:for="{{character.appearedIn.books}}" wx:key="*this" class="tag tag-ice">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 剧集描述 -->
+  <view class="tab-content" wx:if="{{activeTab === 'show'}}">
+    <view class="content-card card">
+      <view class="content-title text-subtitle">剧中描写</view>
+      <view class="content-body text-body">
+        {{character.showBio || '剧集资料整理中...'}}
+      </view>
+    </view>
+    <view class="content-card card" wx:if="{{character.appearedIn.seasons.length}}">
+      <view class="content-title text-subtitle">出场季数</view>
+      <view class="tag-list">
+        <text wx:for="{{character.appearedIn.seasons}}" wx:key="*this" class="tag tag-fire">第{{item}}季</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 书剧差异对比 -->
+  <view class="tab-content" wx:if="{{activeTab === 'diff'}}">
+    <view wx:if="{{character.differences && character.differences.length}}">
+      <view wx:for="{{character.differences}}" wx:key="aspect" class="diff-card card">
+        <view class="diff-aspect">
+          <text class="gold-dot">◆</text>
+          <text class="text-subtitle">{{item.aspect}}</text>
+        </view>
+        <view class="diff-row">
+          <view class="diff-side diff-book">
+            <view class="diff-label">📖 原著</view>
+            <text class="text-body">{{item.book}}</text>
+          </view>
+          <view class="diff-divider"></view>
+          <view class="diff-side diff-show">
+            <view class="diff-label">📺 剧集</view>
+            <text class="text-body">{{item.show}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="empty-state">
+      <text class="icon">📝</text>
+      <text class="text">该角色暂无书剧差异记录</text>
+    </view>
+  </view>
+
+  <!-- 标签 -->
+  <view class="content-card card" wx:if="{{character.tags && character.tags.length}}">
+    <view class="content-title text-subtitle">标签</view>
+    <view class="tag-list">
+      <text wx:for="{{character.tags}}" wx:key="*this" class="tag tag-gold">{{item}}</text>
+    </view>
+  </view>
+
+<wxs module="fmt">
+function formatCharName(id) {
+  return id.replace('char_', '').split('_').join(' ');
+}
+module.exports.formatCharName = formatCharName;
+</wxs>
+
+  <!-- 关联角色 -->
+  <view class="content-card card" wx:if="{{character.relatedCharacters && character.relatedCharacters.length}}">
+    <view class="content-title text-subtitle">关联角色</view>
+    <view class="related-chars">
+      <text
+        wx:for="{{character.relatedCharacters}}"
+        wx:key="*this"
+        class="related-char-link"
+        data-id="{{item}}"
+        bindtap="onRelatedCharacterTap"
+      >{{fmt.formatCharName(item)}}</text>
+    </view>
+  </view>
+
+  <view class="bottom-spacer"></view>
+</view>
+
+<!-- 加载中 -->
+<view class="loading-container" wx:if="{{loading}}">
+  <view class="skeleton hero-card">
+    <view class="skeleton skeleton-title"></view>
+    <view class="skeleton skeleton-line"></view>
+    <view class="skeleton skeleton-line" style="width:70%"></view>
+  </view>
+  <view class="skeleton card" style="height:200rpx;margin-top:24rpx;"></view>
+</view>
+
+<!-- 角色不存在 -->
+<view class="empty-state" wx:if="{{!loading && !character}}">
+  <text class="icon">🐉</text>
+  <text class="text">角色数据不存在</text>
+</view>

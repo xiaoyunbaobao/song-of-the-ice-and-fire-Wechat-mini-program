@@ -1,0 +1,80 @@
+<!-- 冰与火之歌 · 首页 -->
+<view class="index-page">
+  <!-- 顶部 Banner -->
+  <view class="hero-banner">
+    <!-- 书卷瀑布流背景 -->
+    <view class="banner-waterfall">
+      <view class="banner-row banner-row-1">
+        <image wx:for="{{bannerRow1}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+        <image wx:for="{{bannerRow1}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+      </view>
+      <view class="banner-row banner-row-2">
+        <image wx:for="{{bannerRow2}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+        <image wx:for="{{bannerRow2}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+      </view>
+    </view>
+    <view class="hero-mask"></view>
+    <view class="hero-content">
+      <view class="hero-icon">📜</view>
+      <view class="hero-title">冰与火知识库</view>
+      <view class="hero-subtitle">参考国内权威百科 冰与火中文维基网</view>
+      <view class="hero-desc">致力于完整解析乔治·R·R·马丁所创造的奇幻世界</view>
+      <view class="hero-credit text-muted">部分历史性资料来自旧镇学城 · 鸣谢各位大学士</view>
+    </view>
+  </view>
+
+  <!-- 搜索栏 -->
+  <view class="search-section">
+    <search-bar placeholder="搜索角色、家族、事件..." bindsearch="onSearch" />
+  </view>
+
+  <!-- 维斯特洛交互地图 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">维斯特洛大陆</text>
+    </view>
+    <!-- 区域索引导航 -->
+    <scroll-view class="region-tabs-scroll" scroll-x="true">
+      <view class="region-tabs">
+        <text
+          wx:for="{{regionTabs}}" wx:key="id"
+          class="region-tab {{activeMapRegion === item.id ? 'active' : ''}}"
+          data-id="{{item.id}}"
+          bindtap="onRegionTab"
+        >{{item.name}}</text>
+      </view>
+    </scroll-view>
+    <!-- 地图 -->
+    <map-interactive
+      base-map="/images/map/westeros.jpg"
+      offset-y="{{mapOffsetY}}"
+      active-region="{{activeMapRegion}}"
+    />
+  </view>
+
+  <!-- 探索维斯特洛 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">探索维斯特洛</text>
+    </view>
+    <view class="category-grid">
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="category-card"
+        data-path="{{item.path}}"
+        bindtap="onCategoryTap"
+      >
+        <view class="category-icon">{{item.icon}}</view>
+        <view class="category-name">{{item.name}}</view>
+        <view class="category-desc text-muted">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="footer">
+    <view class="divider-gold"></view>
+    <text class="footer-text text-muted">凛冬将至 · Valar Morghulis</text>
+  </view>
+</view>

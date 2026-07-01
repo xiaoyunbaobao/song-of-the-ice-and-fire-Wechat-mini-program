@@ -1,0 +1,15 @@
+<view class="char-card card" bindtap="onTap">
+  <view class="char-card-avatar">
+    <text>{{character.name[0]}}</text>
+  </view>
+  <view class="char-card-info">
+    <view class="char-card-name">{{character.name}}</view>
+    <view class="char-card-titles text-secondary" wx:if="{{character.titles && character.titles.length}}">
+      {{character.titles[0]}}
+    </view>
+  </view>
+  <view wx:if="{{showStatus}}" class="char-card-status">
+    <text class="tag {{statusClass}}">{{statusLabel}}</text>
+  </view>
+  <view class="char-card-arrow">›</view>
+</view>

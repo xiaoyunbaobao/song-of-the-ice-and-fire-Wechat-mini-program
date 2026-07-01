@@ -1,0 +1,251 @@
+/* === 家族详情页 === */
+.page {
+  padding: 24rpx;
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+/* ===== 英雄区域 ===== */
+.hero-section {
+  border-radius: 20rpx;
+  padding: 36rpx 28rpx 28rpx;
+  margin-bottom: 24rpx;
+  border: 1rpx solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-sigil-wrap {
+  margin-bottom: 20rpx;
+}
+
+.hero-sigil-circle {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border: 3rpx solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40rpx rgba(212, 168, 83, 0.2);
+}
+
+.hero-sigil-emoji { font-size: 64rpx; }
+.hero-sigil-img { width: 90%; height: 90%; }
+
+.hero-text {
+  text-align: center;
+  margin-bottom: 8rpx;
+}
+
+.hero-name {
+  font-size: 42rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8rpx;
+}
+
+.hero-words {
+  font-size: 28rpx;
+  font-style: italic;
+  letter-spacing: 2rpx;
+}
+
+.hero-coat {
+  margin-top: 12rpx;
+  margin-bottom: 24rpx;
+}
+
+/* 信息网格 */
+.hero-info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border-top: 1rpx solid var(--border-color);
+  padding-top: 24rpx;
+}
+
+.info-cell {
+  width: 50%;
+  padding: 12rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-label {
+  font-size: 22rpx;
+  margin-bottom: 6rpx;
+}
+
+.info-value {
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+/* ===== 通用区块卡片 ===== */
+.section-card {
+  margin-bottom: 24rpx;
+  border: 1rpx solid var(--border-color);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rpx;
+}
+
+.gold-dot {
+  font-size: 24rpx;
+  color: var(--gold);
+  margin-right: 12rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+}
+
+/* ===== 历史文本 ===== */
+.history-text {
+  text-indent: 2em;
+  line-height: 1.9;
+}
+
+/* ===== 时间线 ===== */
+.timeline {
+  position: relative;
+  padding-left: 8rpx;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 6rpx;
+  margin-right: 20rpx;
+  position: relative;
+}
+
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  top: 16rpx;
+  left: 7rpx;
+  width: 2rpx;
+  height: calc(100% + 4rpx);
+  background: var(--border-color);
+}
+
+.timeline-item:last-child .timeline-dot::after {
+  display: none;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.timeline-year {
+  font-size: 24rpx;
+  font-weight: 600;
+  margin-bottom: 4rpx;
+}
+
+.timeline-event {
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+/* ===== 成员列表 ===== */
+.members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.member-item {
+  display: flex;
+  align-items: center;
+  padding: 14rpx 16rpx;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10rpx;
+  border: 1rpx solid transparent;
+  transition: all 0.2s;
+}
+
+.member-item:active {
+  background: rgba(212, 168, 83, 0.08);
+  border-color: rgba(212, 168, 83, 0.2);
+}
+
+.member-bullet {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.member-text {
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+/* ===== 封臣标签 ===== */
+.vassal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+/* ===== 加载骨架屏 ===== */
+.loading-container {
+  padding: 24rpx;
+}
+
+.skeleton-sigil-big {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin: 0 auto 24rpx;
+}
+
+.skeleton-title {
+  height: 42rpx;
+  width: 240rpx;
+  margin: 0 auto 16rpx;
+}
+
+.skeleton-subtitle {
+  height: 28rpx;
+  width: 200rpx;
+  margin: 0 auto;
+}
+
+/* ===== 分割线复用 ===== */
+.divider-gold {
+  height: 2rpx;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 20rpx 0 24rpx;
+}
+
+/* ===== 底部留白 ===== */
+.bottom-spacer {
+  height: 80rpx;
+}

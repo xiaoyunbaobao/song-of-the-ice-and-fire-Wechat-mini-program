@@ -1,0 +1,56 @@
+<!-- 家族列表页 -->
+<view class="page">
+  <!-- 搜索栏 -->
+  <view class="header-section">
+    <search-bar placeholder="搜索家族名称、族语、地区..." bindsearch="onSearch" bindclear="onSearchClear" />
+  </view>
+
+  <!-- 加载中骨架屏 -->
+  <view wx:if="{{loading}}" class="skeleton-grid">
+    <view wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this" class="skeleton-card">
+      <view class="skeleton skeleton-sigil"></view>
+      <view class="skeleton skeleton-house-name"></view>
+      <view class="skeleton skeleton-words"></view>
+      <view class="skeleton skeleton-region"></view>
+    </view>
+  </view>
+
+  <!-- 家族网格 -->
+  <view wx:else class="house-grid">
+    <view
+      wx:for="{{houses}}"
+      wx:key="_id"
+      class="house-card card"
+      data-id="{{item._id}}"
+      bindtap="onHouseTap"
+    >
+      <view class="house-card-sigil">
+        <image wx:if="{{item.img}}" class="sigil-img" src="{{item.img}}" mode="aspectFit" />
+        <text wx:else class="sigil-emoji">{{item.sigil || '🏰'}}</text>
+      </view>
+      <view class="house-card-info">
+        <view class="house-card-name">{{item.name}}</view>
+        <view class="house-card-words text-gold" wx:if="{{item.words}}">"{{item.words}}"</view>
+        <view class="house-card-words text-gold" wx:else>&nbsp;</view>
+        <view class="house-card-meta">
+          <text class="house-card-region text-muted">{{item.region || '未知地区'}}</text>
+          <text class="house-card-seat text-secondary" wx:if="{{item.seat}}">{{item.seat}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载更多 -->
+  <view wx:if="{{loadingMore}}" class="load-more">
+    <text class="text-muted">加载中...</text>
+  </view>
+  <view wx:elif="{{!hasMore && houses.length > 0}}" class="load-more">
+    <text class="text-muted">— 已显示全部 —</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{!loading && houses.length === 0}}" class="empty-state">
+    <text class="icon">🏰</text>
+    <text class="text">没有找到匹配的家族</text>
+  </view>
+</view>

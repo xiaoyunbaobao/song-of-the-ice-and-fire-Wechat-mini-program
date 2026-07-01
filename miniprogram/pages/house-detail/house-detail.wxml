@@ -1,0 +1,120 @@
+<!-- 家族详情页 -->
+<view class="page" wx:if="{{!loading && house}}">
+  <!-- 头部英雄区域 -->
+  <view class="hero-section card">
+    <view class="hero-sigil-wrap">
+      <view class="hero-sigil-circle">
+        <image wx:if="{{house.img}}" class="hero-sigil-img" src="{{house.img}}" mode="aspectFit" />
+        <text wx:else class="hero-sigil-emoji">{{house.sigil || '🏰'}}</text>
+      </view>
+    </view>
+    <view class="hero-text">
+      <view class="hero-name">{{house.name}}</view>
+      <view class="hero-words text-gold" wx:if="{{house.words}}">"{{house.words}}"</view>
+    </view>
+    <view class="hero-coat" wx:if="{{house.coatOfArms}}">
+      <text class="text-sm text-muted">{{house.coatOfArms}}</text>
+    </view>
+
+    <!-- 基本信息网格 -->
+    <view class="hero-info-grid">
+      <view class="info-cell">
+        <view class="info-label text-muted">徽记</view>
+        <view class="info-value text-primary">{{house.sigilName || '—'}}</view>
+      </view>
+      <view class="info-cell">
+        <view class="info-label text-muted">地区</view>
+        <view class="info-value text-primary">{{house.region || '—'}}</view>
+      </view>
+      <view class="info-cell">
+        <view class="info-label text-muted">封地</view>
+        <view class="info-value text-primary">{{house.seat || '—'}}</view>
+      </view>
+      <view class="info-cell">
+        <view class="info-label text-muted">宗主</view>
+        <view class="info-value text-primary">{{house.overlord || '—'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 家族历史 -->
+  <view class="section-card card" wx:if="{{house.history}}">
+    <view class="section-header">
+      <text class="gold-dot">◆</text>
+      <text class="section-title text-subtitle">家族历史</text>
+    </view>
+    <view class="divider-gold"></view>
+    <view class="history-text text-body">{{house.history}}</view>
+  </view>
+
+  <!-- 重大事件时间线 -->
+  <view class="section-card card" wx:if="{{house.notableEvents && house.notableEvents.length}}">
+    <view class="section-header">
+      <text class="gold-dot">◆</text>
+      <text class="section-title text-subtitle">重大事件</text>
+    </view>
+    <view class="divider-gold"></view>
+    <view class="timeline">
+      <view class="timeline-item" wx:for="{{house.notableEvents}}" wx:key="year">
+        <view class="timeline-dot"></view>
+        <view class="timeline-content">
+          <text class="timeline-year text-gold">{{item.year}}</text>
+          <text class="timeline-event text-secondary">{{item.event}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 主要成员 -->
+  <view class="section-card card" wx:if="{{house.members && house.members.length}}">
+    <view class="section-header">
+      <text class="gold-dot">◆</text>
+      <text class="section-title text-subtitle">主要成员</text>
+    </view>
+    <view class="divider-gold"></view>
+    <view class="members-list">
+      <view
+        class="member-item"
+        wx:for="{{house.members}}"
+        wx:key="*this"
+        data-id="{{item}}"
+        bindtap="onCharacterTap"
+      >
+        <view class="member-bullet"></view>
+        <text class="member-text text-secondary">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 封臣家族 -->
+  <view class="section-card card" wx:if="{{house.vassalHouses && house.vassalHouses.length}}">
+    <view class="section-header">
+      <text class="gold-dot">◆</text>
+      <text class="section-title text-subtitle">封臣家族</text>
+    </view>
+    <view class="divider-gold"></view>
+    <view class="vassal-tags">
+      <text wx:for="{{house.vassalHouses}}" wx:key="*this" class="tag tag-gold">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="bottom-spacer"></view>
+</view>
+
+<!-- 加载中骨架屏 -->
+<view class="loading-container" wx:if="{{loading}}">
+  <view class="skeleton hero-card">
+    <view class="skeleton skeleton-sigil-big"></view>
+    <view class="skeleton skeleton-title"></view>
+    <view class="skeleton skeleton-subtitle"></view>
+  </view>
+  <view class="skeleton card" style="height:200rpx;margin-top:24rpx;"></view>
+  <view class="skeleton card" style="height:160rpx;margin-top:24rpx;"></view>
+  <view class="skeleton card" style="height:140rpx;margin-top:24rpx;"></view>
+</view>
+
+<!-- 家族不存在 -->
+<view class="empty-state" wx:if="{{!loading && !house}}">
+  <text class="icon">🏰</text>
+  <text class="text">家族数据不存在</text>
+</view>

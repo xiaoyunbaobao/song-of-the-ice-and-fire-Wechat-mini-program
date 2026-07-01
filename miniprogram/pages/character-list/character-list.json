@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "search-bar": "/components/search-bar/search-bar",
+    "char-card": "/components/char-card/char-card"
+  },
+  "navigationBarTitleText": "角色"
+}

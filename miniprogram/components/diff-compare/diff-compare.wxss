@@ -1,0 +1,176 @@
+/* components/diff-compare/diff-compare.wxss */
+/* 冰与火之歌 书籍vs剧集对比组件样式 - Dark Theme */
+
+/* ========== Container ========== */
+.diff-compare {
+  background-color: #1e1812;
+  padding: 24rpx;
+  border-radius: 12rpx;
+}
+
+.diff-compare.empty {
+  padding: 40rpx 24rpx;
+}
+
+/* ========== Header ========== */
+.diff-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1px solid #3d3024;
+}
+
+.diff-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #d4a853;
+}
+
+.diff-mode-toggle {
+  padding: 8rpx 20rpx;
+  background-color: rgba(212, 168, 83, 0.12);
+  border: 1px solid rgba(212, 168, 83, 0.25);
+  border-radius: 20rpx;
+}
+
+.toggle-text {
+  font-size: 22rpx;
+  color: #d4a853;
+}
+
+/* ========== Empty State ========== */
+.diff-empty {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.empty-text {
+  font-size: 24rpx;
+  color: #6a6560;
+}
+
+/* ========== Stacked Mode ========== */
+.diff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.diff-item {
+  background-color: #2d241a;
+  border: 1px solid #3d3024;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.diff-aspect {
+  padding: 16rpx 20rpx;
+  background-color: rgba(212, 168, 83, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+.aspect-label {
+  font-size: 20rpx;
+  color: #6a6560;
+  margin-right: 12rpx;
+}
+
+.aspect-name {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #d4a853;
+}
+
+.diff-columns {
+  display: flex;
+  flex-direction: column;
+}
+
+.diff-side {
+  padding: 20rpx;
+}
+
+.diff-side.book {
+  border-bottom: 1px solid #3d3024;
+}
+
+.side-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.side-icon {
+  font-size: 24rpx;
+  margin-right: 8rpx;
+}
+
+.side-label {
+  font-size: 22rpx;
+  font-weight: bold;
+}
+
+.book-header .side-label {
+  color: #7ec8e3;
+}
+
+.show-header .side-label {
+  color: #c44536;
+}
+
+.side-content {
+  font-size: 24rpx;
+  color: #a09888;
+  line-height: 1.7;
+}
+
+/* ========== Side-by-Side Mode ========== */
+.diff-item-horizontal {
+  background-color: #2d241a;
+  border: 1px solid #3d3024;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.diff-aspect-horizontal {
+  padding: 16rpx 20rpx;
+  background-color: rgba(212, 168, 83, 0.08);
+  text-align: center;
+}
+
+.diff-columns-horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.diff-side-h {
+  flex: 1;
+  padding: 20rpx;
+}
+
+.diff-side-h.book {
+  background-color: rgba(143, 184, 196, 0.04);
+}
+
+.diff-side-h.show {
+  background-color: rgba(196, 85, 58, 0.04);
+}
+
+.diff-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40rpx;
+  background-color: rgba(212, 168, 83, 0.06);
+}
+
+.divider-text {
+  font-size: 20rpx;
+  font-weight: bold;
+  color: #d4a853;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+}

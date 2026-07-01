@@ -1,0 +1,259 @@
+/* === 角色详情页 === */
+.page {
+  padding: 24rpx;
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+/* 头部卡片 */
+.hero-card {
+  border-radius: 20rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  border: 1rpx solid var(--border-color);
+}
+
+.hero-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.hero-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.hero-avatar-text {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #261f18;
+}
+
+.hero-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.hero-name {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6rpx;
+}
+
+.hero-aliases {
+  font-size: 24rpx;
+}
+
+.hero-status {
+  flex-shrink: 0;
+  margin-left: 12rpx;
+}
+
+/* 家族信息 */
+.hero-house {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  margin-bottom: 24rpx;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12rpx;
+}
+
+.card-inner:active {
+  background: rgba(212,168,83,0.1);
+}
+
+.house-sigil {
+  font-size: 48rpx;
+  margin-right: 16rpx;
+}
+
+.house-detail {
+  flex: 1;
+}
+
+.house-name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.house-words {
+  font-size: 24rpx;
+  font-style: italic;
+}
+
+.house-region {
+  font-size: 22rpx;
+  text-align: right;
+}
+
+/* 元数据 */
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.meta-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.meta-label {
+  width: 100rpx;
+  font-size: 24rpx;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  padding-top: 2rpx;
+}
+
+.meta-value {
+  flex: 1;
+  font-size: 26rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+/* Tab 栏 */
+.tab-bar {
+  display: flex;
+  background: var(--bg-card);
+  border-radius: 16rpx;
+  padding: 8rpx;
+  margin-bottom: 24rpx;
+  border: 1rpx solid var(--border-color);
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.tab-item.active {
+  background: rgba(212, 168, 83, 0.15);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* 内容卡片 */
+.content-card {
+  margin-bottom: 24rpx;
+}
+
+.content-title {
+  margin-bottom: 16rpx;
+}
+
+.content-body {
+  text-indent: 2em;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+/* 差异对比卡片 */
+.diff-card {
+  margin-bottom: 24rpx;
+}
+
+.diff-aspect {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.diff-aspect .gold-dot {
+  font-size: 24rpx;
+  margin-right: 12rpx;
+  color: var(--gold);
+}
+
+.diff-row {
+  display: flex;
+}
+
+.diff-side {
+  flex: 1;
+}
+
+.diff-side.diff-book {
+  padding-right: 16rpx;
+}
+
+.diff-side.diff-show {
+  padding-left: 16rpx;
+}
+
+.diff-label {
+  font-size: 24rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+  color: var(--gold);
+}
+
+.diff-divider {
+  width: 2rpx;
+  background: var(--border-color);
+  flex-shrink: 0;
+}
+
+/* 关联角色 */
+.related-chars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.related-char-link {
+  padding: 12rpx 24rpx;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  color: var(--ice-blue);
+  border: 1rpx solid rgba(143,184,196,0.2);
+  text-transform: capitalize;
+}
+
+.related-char-link:active {
+  background: rgba(143,184,196,0.15);
+}
+
+/* 加载中 */
+.loading-container {
+  padding: 24rpx;
+}
+
+.skeleton-title {
+  height: 40rpx;
+  width: 200rpx;
+  margin-bottom: 24rpx;
+}
+
+.skeleton-line {
+  height: 28rpx;
+  width: 100%;
+  margin-bottom: 16rpx;
+}
+
+/* 底部留白 */
+.bottom-spacer {
+  height: 80rpx;
+}

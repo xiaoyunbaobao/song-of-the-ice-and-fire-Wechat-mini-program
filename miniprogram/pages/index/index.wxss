@@ -1,0 +1,297 @@
+/* === 首页 === */
+.index-page {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+/* === 顶部 Banner === */
+.hero-banner {
+  position: relative;
+  padding: 60rpx 32rpx;
+  background: #1a1410;
+  border-bottom: 1rpx solid var(--border-color);
+  overflow: hidden;
+  height: 420rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 瀑布流容器 */
+.banner-waterfall {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  padding: 12rpx 0;
+}
+
+.banner-row {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 46%;
+}
+
+.banner-cover {
+  height: 100%;
+  width: 160rpx;
+  flex-shrink: 0;
+  margin-right: 12rpx;
+  border-radius: 8rpx;
+  opacity: 0.65;
+}
+
+/* 第一排左移 */
+.banner-row-1 {
+  animation: bannerScroll1 80s linear infinite;
+}
+
+@keyframes bannerScroll1 {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 第二排右移（反向，不同速度） */
+.banner-row-2 {
+  animation: bannerScroll2 100s linear infinite;
+}
+
+@keyframes bannerScroll2 {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.hero-mask {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(18,12,6,0.45);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-icon {
+  font-size: 56rpx;
+  margin-bottom: 10rpx;
+  text-shadow: 0 2rpx 8rpx rgba(0,0,0,0.6);
+}
+
+.hero-title {
+  font-size: 42rpx;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 8rpx;
+  margin-bottom: 6rpx;
+  text-shadow: 0 2rpx 10rpx rgba(0,0,0,0.7);
+}
+
+.hero-subtitle {
+  font-size: 22rpx;
+  color: var(--text-muted);
+  margin-bottom: 10rpx;
+}
+
+.hero-desc {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  letter-spacing: 2rpx;
+  margin-bottom: 12rpx;
+}
+
+.hero-credit {
+  font-size: 20rpx;
+}
+
+/* === 搜索 === */
+.search-section { padding: 24rpx; }
+
+/* === 区域索引导航 === */
+.region-tabs-scroll { white-space: nowrap; padding: 0 24rpx 16rpx; }
+.region-tabs { display: inline-flex; gap: 12rpx; }
+.region-tab {
+  display: inline-block; padding: 10rpx 22rpx;
+  background: var(--bg-card); border: 1rpx solid var(--border-color);
+  border-radius: 24rpx; font-size: 24rpx; color: var(--text-secondary);
+  transition: all 0.15s;
+}
+.region-tab.active { background: rgba(212,168,83,0.18); border-color: var(--gold); color: var(--gold); }
+
+/* === 通用区块 === */
+.section {
+  padding: 0 24rpx;
+  margin-bottom: 36rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 0 4rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6rpx;
+  height: 28rpx;
+  background: var(--gold);
+  border-radius: 3rpx;
+}
+
+.section-action {
+  font-size: 24rpx;
+}
+
+/* === 字母索引导航 === */
+.letter-scroll {
+  white-space: nowrap;
+}
+
+.letter-list {
+  display: inline-flex;
+  gap: 10rpx;
+}
+
+.letter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 12rpx;
+  background: var(--bg-card);
+  border: 1rpx solid var(--border-color);
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  transition: all 0.15s;
+}
+
+.letter-chip:active {
+  background: rgba(212,168,83,0.2);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* === 家族快速入口 === */
+.house-scroll {
+  white-space: nowrap;
+}
+
+.house-list {
+  display: inline-flex;
+  gap: 16rpx;
+}
+
+.house-chip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx 28rpx;
+  background: var(--bg-card);
+  border: 1rpx solid var(--border-color);
+  border-radius: 16rpx;
+  min-width: 140rpx;
+  transition: all 0.15s;
+}
+
+.house-chip:active {
+  border-color: var(--gold);
+  background: var(--bg-card-hover);
+  transform: scale(0.96);
+}
+
+.house-chip-sigil {
+  font-size: 48rpx;
+  margin-bottom: 10rpx;
+}
+
+.house-chip-name {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4rpx;
+}
+
+.house-chip-words {
+  font-size: 20rpx;
+  white-space: nowrap;
+}
+
+/* === 分类卡片 === */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36rpx 20rpx;
+  background: var(--bg-card);
+  border: 1rpx solid var(--border-color);
+  border-radius: 16rpx;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+.category-card:active {
+  border-color: var(--gold);
+  background: var(--bg-card-hover);
+  transform: scale(0.97);
+}
+
+.category-icon {
+  font-size: 52rpx;
+  margin-bottom: 14rpx;
+}
+
+.category-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6rpx;
+}
+
+.category-desc {
+  font-size: 22rpx;
+}
+
+/* === 底部 === */
+.footer {
+  text-align: center;
+  padding: 24rpx 48rpx;
+}
+
+.footer-text {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  letter-spacing: 6rpx;
+}
+
+.footer-sub {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 20rpx;
+}

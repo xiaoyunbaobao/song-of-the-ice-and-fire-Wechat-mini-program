@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "search-bar": "/components/search-bar/search-bar",
+    "map-interactive": "/components/map-interactive/map-interactive"
+  },
+  "navigationBarTitleText": "冰与火之歌"
+}

@@ -1,0 +1,109 @@
+<!-- pages/search/search.wxml -->
+<!-- 冰与火之歌 搜索页 -->
+
+<view class="search-page">
+  <!-- Search Bar Area -->
+  <view class="search-bar-wrapper">
+    <view class="search-input-container">
+      <text class="search-icon">&#x1F50D;</text>
+      <input
+        class="search-input"
+        type="text"
+        placeholder="搜索角色、家族、事件..."
+        placeholder-class="search-placeholder"
+        value="{{keyword}}"
+        focus="{{true}}"
+        confirm-type="search"
+        bindinput="onSearchInput"
+        bindconfirm="onSearchConfirm"
+      />
+      <text class="clear-icon" wx:if="{{keyword.length > 0}}" bindtap="onClear">&#x2715;</text>
+    </view>
+  </view>
+
+  <!-- Loading State -->
+  <view class="search-status" wx:if="{{searching}}">
+    <text class="status-text">搜索中...</text>
+  </view>
+
+  <!-- Empty State -->
+  <view class="search-empty" wx:if="{{!searching && keyword.length > 0 && !hasResults}}">
+    <text class="empty-icon">&#x1F50E;</text>
+    <text class="empty-title">未找到结果</text>
+    <text class="empty-desc">没有找到与 "{{keyword}}" 相关的内容</text>
+  </view>
+
+  <!-- Initial State -->
+  <view class="search-initial" wx:if="{{!searching && keyword.length === 0}}">
+    <text class="initial-icon">&#x2694;</text>
+    <text class="initial-title">探索维斯特洛</text>
+    <text class="initial-desc">输入关键词搜索维斯特洛大陆上的一切</text>
+  </view>
+
+  <!-- Results -->
+  <view class="search-results" wx:if="{{hasResults && !searching}}">
+    <view class="results-header">
+      <text class="results-count">共找到 {{totalCount}} 条结果</text>
+    </view>
+
+    <!-- Characters Section -->
+    <view class="result-section" wx:if="{{characters.length > 0}}">
+      <view class="section-header">
+        <text class="section-icon">&#x1F464;</text>
+        <text class="section-title">角色</text>
+        <text class="section-count">{{characters.length}}</text>
+      </view>
+      <block wx:for="{{characters}}" wx:key="_id">
+        <view class="result-item"
+              bindtap="onResultTap"
+              data-type="character"
+              data-id="{{item._id}}"
+              data-name="{{item.name}}">
+          <text class="result-name">{{item.name}}</text>
+          <text class="result-sub">{{item.nameEn}} · {{item.titles[0] || ''}}</text>
+          <text class="result-arrow">&#x203A;</text>
+        </view>
+      </block>
+    </view>
+
+    <!-- Houses Section -->
+    <view class="result-section" wx:if="{{houses.length > 0}}">
+      <view class="section-header">
+        <text class="section-icon">&#x1F3F0;</text>
+        <text class="section-title">家族</text>
+        <text class="section-count">{{houses.length}}</text>
+      </view>
+      <block wx:for="{{houses}}" wx:key="_id">
+        <view class="result-item"
+              bindtap="onResultTap"
+              data-type="house"
+              data-id="{{item._id}}"
+              data-name="{{item.name}}">
+          <text class="result-name">{{item.name}}</text>
+          <text class="result-sub">{{item.nameEn}} · {{item.words || ''}} · {{item.region || ''}}</text>
+          <text class="result-arrow">&#x203A;</text>
+        </view>
+      </block>
+    </view>
+
+    <!-- Events Section -->
+    <view class="result-section" wx:if="{{events.length > 0}}">
+      <view class="section-header">
+        <text class="section-icon">&#x1F4DC;</text>
+        <text class="section-title">事件</text>
+        <text class="section-count">{{events.length}}</text>
+      </view>
+      <block wx:for="{{events}}" wx:key="_id">
+        <view class="result-item"
+              bindtap="onResultTap"
+              data-type="event"
+              data-id="{{item._id}}"
+              data-name="{{item.name}}">
+          <text class="result-name">{{item.name}}</text>
+          <text class="result-sub">{{item.nameEn || ''}}</text>
+          <text class="result-arrow">&#x203A;</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

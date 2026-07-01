@@ -1,0 +1,78 @@
+/* 时间线 · 维斯特洛编年史 */
+.page { background: var(--bg-primary); min-height: 100vh; padding-bottom: 60rpx; }
+
+/* 头部 */
+.timeline-header { text-align: center; padding: 40rpx 32rpx 32rpx; border-bottom: 1rpx solid var(--border-color); }
+.header-icon { font-size: 64rpx; margin-bottom: 12rpx; }
+.header-title { font-size: 36rpx; font-weight: 700; color: var(--gold); letter-spacing: 6rpx; margin-bottom: 8rpx; }
+.header-sub { font-size: 22rpx; }
+
+/* 时间线主体 */
+.timeline-body { position: relative; padding: 32rpx 24rpx 0; }
+
+/* 竖线 */
+.tl-line {
+  position: absolute; left: 48rpx; top: 0; bottom: 0;
+  width: 3rpx; background: linear-gradient(to bottom, var(--gold) 0%, var(--border-color) 5%, var(--gold-dark) 50%, var(--border-color) 95%);
+  z-index: 0;
+}
+
+/* 纪元区块 */
+.era-block { position: relative; margin-bottom: 40rpx; z-index: 1; }
+
+/* 纪元头 */
+.era-header {
+  display: flex; align-items: center; padding: 20rpx 0 20rpx 12rpx;
+  background: var(--bg-card); border-radius: 16rpx; border: 1rpx solid var(--border-color);
+  position: relative; z-index: 2;
+}
+.era-header:active { border-color: var(--gold); }
+
+.era-dot {
+  width: 64rpx; height: 64rpx; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  margin-right: 16rpx; flex-shrink: 0; font-size: 32rpx;
+}
+.era-dot.major { background: rgba(212,168,83,0.2); border: 3rpx solid var(--gold); box-shadow: 0 0 16rpx rgba(212,168,83,0.15); }
+
+.era-info { flex: 1; }
+.era-title { font-size: 30rpx; font-weight: 700; color: var(--text-primary); }
+.era-period { font-size: 24rpx; margin-top: 4rpx; }
+.era-source { font-size: 20rpx; margin-top: 2rpx; }
+.era-toggle { font-size: 22rpx; margin-right: 8rpx; }
+
+/* 折叠/展开 */
+.era-events.hide { display: none; }
+.era-events.show { display: block; padding-top: 20rpx; }
+
+/* 事件 */
+.event-card { display: flex; position: relative; padding-left: 32rpx; margin-bottom: 0; }
+.event-dot-wrap { width: 40rpx; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; margin-right: 16rpx; position: relative; z-index: 1; }
+
+.event-dot {
+  width: 16rpx; height: 16rpx; border-radius: 50%; flex-shrink: 0;
+  border: 2rpx solid var(--border-color); background: var(--bg-primary);
+}
+.event-dot.major {
+  width: 24rpx; height: 24rpx; border: 3rpx solid var(--fire-red);
+  background: var(--fire-red); box-shadow: 0 0 10rpx rgba(196,85,58,0.5);
+}
+.event-dot.medium {
+  width: 20rpx; height: 20rpx; border: 2rpx solid var(--gold);
+  background: var(--gold); box-shadow: 0 0 8rpx rgba(212,168,83,0.4);
+}
+.event-dot.minor {
+  width: 14rpx; height: 14rpx; border: 2rpx solid var(--ice-blue);
+  background: var(--ice-blue); box-shadow: 0 0 6rpx rgba(143,184,196,0.3);
+}
+
+.event-tail { flex: 1; width: 2rpx; background: var(--border-color); min-height: 24rpx; }
+
+.event-body { flex: 1; margin-bottom: 16rpx; margin-left: 0; }
+.event-date { font-size: 22rpx; font-weight: 600; margin-bottom: 6rpx; }
+.event-title { font-size: 28rpx; font-weight: 700; color: var(--text-primary); margin-bottom: 10rpx; }
+.event-desc { font-size: 26rpx; line-height: 1.7; }
+.event-chars { margin-top: 14rpx; display: flex; flex-wrap: wrap; gap: 8rpx; }
+
+/* 底部 */
+.timeline-footer { text-align: center; padding: 24rpx 48rpx 48rpx; }
+.timeline-footer text { display: block; margin-top: 12rpx; font-size: 22rpx; }

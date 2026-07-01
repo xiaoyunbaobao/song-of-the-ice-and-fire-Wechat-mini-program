@@ -1,0 +1,58 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "lazyloadPlaceholderEnable": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useStaticServer": true,
+    "showES6CompileOption": false,
+    "checkInvalidKey": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "condition": false,
+    "compileWorklet": false,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "swc": false,
+    "disableSWC": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.5.5",
+  "appid": "wxd14edc0d1a1cfb55",
+  "projectname": "asoiaf-knowledge-base",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "description": "冰与火之歌知识库 · 微信小程序",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  }
+}

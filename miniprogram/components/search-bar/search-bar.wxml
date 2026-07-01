@@ -1,0 +1,22 @@
+<view class="search-bar {{focused ? 'focused' : ''}}">
+  <view class="search-icon">🔍</view>
+  <input
+    class="search-input"
+    type="text"
+    value="{{keyword}}"
+    placeholder="{{placeholder}}"
+    placeholder-class="search-placeholder"
+    confirm-type="search"
+    focus="{{autofocus}}"
+    bindinput="onInput"
+    bindfocus="onFocus"
+    bindblur="onBlur"
+    bindconfirm="onConfirm"
+  />
+  <view class="search-clear" wx:if="{{keyword}}" bindtap="onClear">
+    <text>✕</text>
+  </view>
+  <view class="search-btn" bindtap="onSearch">
+    <text>搜索</text>
+  </view>
+</view>

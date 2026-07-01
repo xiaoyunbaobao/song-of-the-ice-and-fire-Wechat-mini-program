@@ -1,0 +1,55 @@
+<!-- 时间线 · 维斯特洛编年史 -->
+<view class="page">
+  <view class="timeline-header">
+    <view class="header-icon">⏳</view>
+    <view class="header-title">维斯特洛编年史</view>
+    <view class="header-sub text-muted">
+      涵盖《冰与火之歌》《血与火》《七王国的骑士》
+    </view>
+  </view>
+
+  <!-- 时间线主体 -->
+  <view class="timeline-body">
+    <view class="tl-line"></view>
+
+    <view wx:for="{{eras}}" wx:key="id" class="era-block">
+      <!-- 纪元头 -->
+      <view class="era-header" data-id="{{item.id}}" bindtap="toggleEra">
+        <view class="era-dot major">
+          <text>{{item.icon}}</text>
+        </view>
+        <view class="era-info">
+          <view class="era-title">{{item.title}}</view>
+          <view class="era-period text-gold">{{item.period}}</view>
+          <view class="era-source text-muted">{{item.source}}</view>
+        </view>
+        <view class="era-toggle text-muted">{{activeEra === item.id ? '收起 ▲' : '展开 ▼'}}</view>
+      </view>
+
+      <!-- 纪元内事件 -->
+      <view class="era-events {{activeEra === item.id ? 'show' : 'hide'}}">
+        <view wx:for="{{item.events}}" wx:key="id" class="event-card">
+          <!-- 时间线上的点 -->
+          <view class="event-dot-wrap">
+            <view class="event-dot {{item.type === 'major' ? 'major' : item.type === 'medium' ? 'medium' : 'minor'}}"></view>
+            <view class="event-tail" wx:if="{{index < item.events.length - 1}}"></view>
+          </view>
+          <!-- 事件内容 -->
+          <view class="event-body card">
+            <view class="event-date text-gold">{{item.date}}</view>
+            <view class="event-title">{{item.title}}</view>
+            <view class="event-desc text-body">{{item.desc}}</view>
+            <view class="event-chars" wx:if="{{item.characters && item.characters.length}}">
+              <text wx:for="{{item.characters}}" wx:key="*this" class="tag tag-gold" data-name="{{item}}" catchtap="onCharacterTap">{{item}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="timeline-footer">
+    <view class="divider-gold"></view>
+    <text class="text-muted">内容参考冰与火之歌中文维基 · 持续更新</text>
+  </view>
+</view>

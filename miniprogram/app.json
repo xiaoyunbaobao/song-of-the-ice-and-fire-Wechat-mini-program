@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/character-list/character-list",
+    "pages/character-detail/character-detail",
+    "pages/house-list/house-list",
+    "pages/house-detail/house-detail",
+    "pages/martin-says/martin-says",
+    "pages/timeline/timeline",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#261f18",
+    "navigationBarTitleText": "冰与火知识库",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#1e1812"
+  },
+  "tabBar": {
+    "color": "#8a7b68",
+    "selectedColor": "#d4a853",
+    "backgroundColor": "#261f18",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/timeline/timeline",
+        "text": "时间线",
+        "iconPath": "images/tab-timeline.png",
+        "selectedIconPath": "images/tab-timeline-active.png"
+      },
+      {
+        "pagePath": "pages/martin-says/martin-says",
+        "text": "如是说",
+        "iconPath": "images/tab-quill.png",
+        "selectedIconPath": "images/tab-quill-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
