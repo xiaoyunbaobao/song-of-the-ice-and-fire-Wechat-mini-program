@@ -12,12 +12,6 @@
           {{character.aliases.join('、')}}
         </view>
       </view>
-      <view class="hero-status">
-        <text wx:if="{{character.status === 'alive'}}" class="tag tag-status-alive">存活</text>
-        <text wx:elif="{{character.status === 'dead'}}" class="tag tag-status-dead">已故</text>
-        <text wx:elif="{{character.status === 'resurrected'}}" class="tag tag-fire">已复活</text>
-        <text wx:else class="tag tag-ice">未知</text>
-      </view>
     </view>
 
     <!-- 家族信息 -->

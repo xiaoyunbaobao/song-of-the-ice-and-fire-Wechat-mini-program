@@ -1,0 +1,56 @@
+.comment-section { padding:0 24rpx 60rpx; }
+.section-title { font-size:30rpx; font-weight:700; color:var(--text-primary); margin-bottom:4rpx; }
+.section-sub { font-size:22rpx; display:block; margin-bottom:20rpx; }
+
+/* 登录提示 */
+.login-prompt { display:flex; align-items:center; padding:24rpx 28rpx; margin-bottom:20rpx; }
+.login-icon { font-size:44rpx; margin-right:16rpx; }
+.login-text { flex:1; font-size:28rpx; color:var(--text-secondary); }
+.login-arrow { font-size:36rpx; color:var(--text-muted); }
+
+/* 发表表单 */
+.comment-form { margin-bottom:24rpx; }
+.form-row { display:flex; }
+.user-avatar { width:64rpx; height:64rpx; border-radius:50%; flex-shrink:0; margin-right:16rpx; }
+.user-avatar-placeholder { width:64rpx; height:64rpx; border-radius:50%; flex-shrink:0; margin-right:16rpx; background:var(--bg-card); display:flex; align-items:center; justify-content:center; font-size:32rpx; }
+.form-right { flex:1; }
+.comment-input { width:100%; min-height:100rpx; background:var(--bg-card); border-radius:12rpx; padding:16rpx; font-size:28rpx; color:var(--text-primary); box-sizing:border-box; }
+.input-placeholder { color:var(--text-muted); }
+.form-footer { display:flex; justify-content:space-between; align-items:center; margin-top:10rpx; }
+.input-count { font-size:22rpx; }
+.submit-btn { padding:10rpx 28rpx; background:var(--gold); border-radius:24rpx; }
+.submit-btn text { font-size:24rpx; color:#261f18; font-weight:600; }
+.submit-btn.disabled { opacity:0.5; pointer-events:none; }
+
+/* 评论列表 */
+.comment-list { display:flex; flex-direction:column; gap:12rpx; }
+.comment-item { padding:20rpx 24rpx; }
+.comment-header { display:flex; align-items:center; margin-bottom:12rpx; }
+.comment-avatar { width:56rpx; height:56rpx; border-radius:50%; margin-right:12rpx; }
+.comment-avatar-placeholder { width:56rpx; height:56rpx; border-radius:50%; margin-right:12rpx; background:var(--bg-card); display:flex; align-items:center; justify-content:center; font-size:28rpx; }
+.comment-meta { flex:1; }
+.comment-name { font-size:26rpx; font-weight:600; color:var(--text-primary); }
+.comment-house-img { width:28rpx; height:28rpx; margin-left:6rpx; vertical-align:middle; }
+.comment-house-emoji { font-size:22rpx; margin-left:4rpx; }
+.comment-time { font-size:20rpx; }
+.comment-like { padding:6rpx 12rpx; font-size:22rpx; }
+.comment-content { font-size:28rpx; line-height:1.8; }
+.empty-comments { text-align:center; padding:40rpx 0; }
+
+/* 回复提示 */
+.reply-hint { display:flex; justify-content:space-between; padding:12rpx 16rpx; margin-bottom:12rpx; background:rgba(212,168,83,0.1); border-radius:8rpx; font-size:24rpx; color:var(--gold); }
+.cancel-reply { color:var(--text-muted); }
+
+/* 评论操作栏 */
+.comment-actions { display:flex; gap:24rpx; margin-top:14rpx; }
+.action-btn { font-size:22rpx; color:var(--text-muted); padding:4rpx 0; }
+
+/* 回复列表 */
+.replies { margin-top:12rpx; padding-left:16rpx; border-left:3rpx solid var(--border-color); }
+.reply-item { padding:12rpx 0 12rpx 16rpx; }
+.reply-header { display:flex; gap:12rpx; align-items:center; margin-bottom:6rpx; }
+.reply-name { font-size:24rpx; font-weight:600; color:var(--text-primary); }
+.reply-to { font-size:22rpx; }
+.reply-time { font-size:20rpx; margin-left:auto; }
+.reply-content { font-size:26rpx; line-height:1.7; }
+.reply-like { margin-top:6rpx; }

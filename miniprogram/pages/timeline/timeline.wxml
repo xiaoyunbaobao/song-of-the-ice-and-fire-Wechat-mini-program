@@ -1,10 +1,32 @@
 <!-- 时间线 · 维斯特洛编年史 -->
 <view class="page">
   <view class="timeline-header">
-    <view class="header-icon">⏳</view>
-    <view class="header-title">维斯特洛编年史</view>
-    <view class="header-sub text-muted">
-      涵盖《冰与火之歌》《血与火》《七王国的骑士》
+    <view class="banner-waterfall">
+      <view class="banner-row banner-row-1">
+        <image wx:for="{{bannerRow1}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+        <image wx:for="{{bannerRow1}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+      </view>
+      <view class="banner-row banner-row-2">
+        <image wx:for="{{bannerRow2}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+        <image wx:for="{{bannerRow2}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+      </view>
+    </view>
+    <view class="hero-mask"></view>
+    <!-- 火星粒子 -->
+    <view class="embers">
+      <view class="ember e1"></view>
+      <view class="ember e2"></view>
+      <view class="ember e3"></view>
+      <view class="ember e4"></view>
+      <view class="ember e5"></view>
+      <view class="ember e6"></view>
+      <view class="ember e7"></view>
+      <view class="ember e8"></view>
+    </view>
+    <view class="header-content">
+      <view class="header-icon">⏳</view>
+      <view class="header-title">维斯特洛编年史</view>
+      <view class="header-sub">涵盖《冰与火之歌》《血与火》《七王国的骑士》</view>
     </view>
   </view>
 

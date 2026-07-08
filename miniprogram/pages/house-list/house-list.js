@@ -178,7 +178,7 @@ Page({
       {
         _id: 'house_tully',
         name: '徒利家族',
-        sigil: '🐟',
+        sigil: '🐟', img: '/images/houses/House_Tully.jpg',
         sigilName: '银色鳟鱼',
         words: '家族、责任、荣誉',
         region: '河间地',
@@ -190,7 +190,7 @@ Page({
       {
         _id: 'house_tyrell',
         name: '提利尔家族',
-        sigil: '🌹',
+        sigil: '🌹', img: '/images/houses/House_Tyrell.jpg',
         sigilName: '金色玫瑰',
         words: '生生不息',
         region: '河湾地',
@@ -203,7 +203,7 @@ Page({
       {
         _id: 'house_bolton',
         name: '波顿家族',
-        sigil: '🚩',
+        sigil: '🚩', img: '/images/houses/House_Bolton.jpg',
         sigilName: '剥皮人',
         words: '吾刃锐利',
         region: '北境',
@@ -215,7 +215,7 @@ Page({
       {
         _id: 'house_frey',
         name: '佛雷家族',
-        sigil: '🏰',
+        sigil: '🏰', img: '/images/houses/House_Frey.jpg',
         sigilName: '双塔',
         words: '（无正式族语）',
         region: '河间地',
@@ -227,7 +227,7 @@ Page({
       {
         _id: 'house_mormont',
         name: '莫尔蒙家族',
-        sigil: '🐻',
+        sigil: '🐻', img: '/images/houses/House_Mormont.jpg',
         sigilName: '熊',
         words: '昂首屹立',
         region: '北境',
@@ -239,7 +239,7 @@ Page({
       {
         _id: 'house_tarly',
         name: '塔利家族',
-        sigil: '🏹',
+        sigil: '🏹', img: '/images/houses/Tarly.jpg',
         sigilName: '猎人',
         words: '率先冲锋',
         region: '河湾地',
@@ -251,7 +251,7 @@ Page({
       {
         _id: 'house_reed',
         name: '黎德家族',
-        sigil: '🦎',
+        sigil: '🦎', img: '/images/houses/House_Reed.jpg',
         sigilName: '灰沼蜥狮',
         words: '（不详）',
         region: '北境',
@@ -263,7 +263,7 @@ Page({
       {
         _id: 'house_clegane',
         name: '克里冈家族',
-        sigil: '🐕',
+        sigil: '🐕', img: '/images/houses/House_Clegane.jpg',
         sigilName: '三黑犬',
         words: '（无）',
         region: '西境',

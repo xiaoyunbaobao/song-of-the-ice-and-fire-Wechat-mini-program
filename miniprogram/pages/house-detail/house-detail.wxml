@@ -37,14 +37,50 @@
     </view>
   </view>
 
-  <!-- 家族历史 -->
-  <view class="section-card card" wx:if="{{house.history}}">
+  <!-- 家族族谱 -->
+  <view class="section-card card" wx:if="{{house.familyTree}}">
+    <view class="section-header">
+      <text class="gold-dot">◆</text>
+      <text class="section-title text-subtitle">家族族谱</text>
+    </view>
+    <image class="family-tree-img" src="{{house.familyTree}}" mode="widthFix" bindtap="onPreviewTree" />
+  </view>
+
+  <!-- 宗教信仰 -->
+  <view class="section-card card" wx:if="{{house.religion}}">
+    <view class="section-header">
+      <text class="gold-dot">◆</text>
+      <text class="section-title text-subtitle">宗教信仰</text>
+    </view>
+    <view class="divider-gold"></view>
+    <view class="religion-row">
+      <text class="religion-icon">{{house.religion.icon || '🙏'}}</text>
+      <view class="religion-info">
+        <text class="religion-name text-gold">{{house.religion.name}}</text>
+        <block wx:if="{{house.religion.isRich}}">
+            <block wx:for="{{house.religion.desc}}" wx:key="index">
+              <text wx:if="{{!item.l}}" class="text-body">{{item.t}}</text>
+              <view wx:if="{{item.l}}" class="wiki-link" data-target="{{item.l}}" bindtap="onWikiLink" style="display:inline;">{{item.t}}</view>
+            </block>
+          </block>
+          <text wx:else class="text-body">{{house.religion.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 家族历史（超链接词条） -->
+  <view class="section-card card" wx:if="{{house.history && house.history.length}}">
     <view class="section-header">
       <text class="gold-dot">◆</text>
       <text class="section-title text-subtitle">家族历史</text>
     </view>
     <view class="divider-gold"></view>
-    <view class="history-text text-body">{{house.history}}</view>
+    <view class="history-text text-body">
+      <block wx:for="{{house.history}}" wx:key="index">
+        <text wx:if="{{!item.l}}">{{item.t}}</text>
+        <view wx:if="{{item.l}}" class="wiki-link" data-target="{{item.l}}" bindtap="onWikiLink" style="display:inline;">{{item.t}}</view>
+      </block>
+    </view>
   </view>
 
   <!-- 重大事件时间线 -->
@@ -55,11 +91,12 @@
     </view>
     <view class="divider-gold"></view>
     <view class="timeline">
-      <view class="timeline-item" wx:for="{{house.notableEvents}}" wx:key="year">
+      <view class="timeline-item" wx:for="{{house.notableEvents}}" wx:key="year"
+            bindtap="onNotableEventTap" data-event="{{item.event}}">
         <view class="timeline-dot"></view>
         <view class="timeline-content">
           <text class="timeline-year text-gold">{{item.year}}</text>
-          <text class="timeline-event text-secondary">{{item.event}}</text>
+          <text class="timeline-event text-secondary event-clickable">{{item.event}}</text>
         </view>
       </view>
     </view>

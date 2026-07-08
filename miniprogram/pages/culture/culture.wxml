@@ -1,0 +1,60 @@
+<!-- 文化习俗页 -->
+<view class="page" wx:if="{{current}}">
+  <!-- 地域选择标签 -->
+  <scroll-view class="region-tabs-scroll" scroll-x="true">
+    <view class="region-tabs">
+      <text wx:for="{{regions}}" wx:key="id"
+        class="region-tab {{activeRegion === item.id ? 'active' : ''}}"
+        data-id="{{item.id}}" bindtap="selectRegion">
+        {{item.icon}} {{item.name}}
+      </text>
+    </view>
+  </scroll-view>
+
+  <!-- 当前地域详情 -->
+  <view class="region-detail">
+    <view class="region-header">
+      <image wx:if="{{current.img}}" class="region-img" src="{{current.img}}" mode="aspectFit" />
+      <text wx:else class="region-icon">{{current.icon}}</text>
+      <view class="region-title-row">
+        <text class="region-name">{{current.name}}</text>
+        <text class="region-map text-muted">{{current.map}}</text>
+      </view>
+    </view>
+
+    <view class="region-overview card">
+      <text class="overview-text">{{current.overview}}</text>
+    </view>
+
+    <!-- 宗教信仰 -->
+    <view class="section card" wx:if="{{current.religion}}">
+      <view class="section-title">⛪ 宗教信仰</view>
+      <text class="section-label">{{current.religion.name}}</text>
+      <text class="section-text">{{current.religion.desc}}</text>
+    </view>
+
+    <!-- 文化习俗 -->
+    <view class="section card">
+      <view class="section-title">📜 文化习俗</view>
+      <view class="custom-item" wx:for="{{current.customs}}" wx:key="title">
+        <view class="custom-title">{{item.title}}</view>
+        <text class="custom-desc">{{item.desc}}</text>
+      </view>
+    </view>
+
+    <!-- 相关词条 -->
+    <view class="section card" wx:if="{{current.wikiLinks.length || current.charLinks.length}}">
+      <view class="section-title">🔗 深入了解</view>
+      <view class="link-row" wx:if="{{current.wikiLinks.length}}">
+        <block wx:for="{{current.wikiLinks}}" wx:key="*this">
+          <text class="link-tag tag-wiki" data-topic="{{item}}" bindtap="onWikiLink">📖 {{item}}</text>
+        </block>
+      </view>
+      <view class="link-row" wx:if="{{current.charLinks.length}}">
+        <block wx:for="{{current.charLinks}}" wx:key="*this">
+          <text class="link-tag tag-char" data-id="{{item}}" bindtap="onCharLink">👤 相关角色</text>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

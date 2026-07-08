@@ -60,8 +60,7 @@
               data-id="{{item._id}}"
               data-name="{{item.name}}">
           <text class="result-name">{{item.name}}</text>
-          <text class="result-sub">{{item.nameEn}} · {{item.titles[0] || ''}}</text>
-          <text class="result-arrow">&#x203A;</text>
+          <text class="result-sub">{{item.titles[0] || ''}}</text>
         </view>
       </block>
     </view>
@@ -80,8 +79,7 @@
               data-id="{{item._id}}"
               data-name="{{item.name}}">
           <text class="result-name">{{item.name}}</text>
-          <text class="result-sub">{{item.nameEn}} · {{item.words || ''}} · {{item.region || ''}}</text>
-          <text class="result-arrow">&#x203A;</text>
+          <text class="result-sub">{{item.words || ''}} · {{item.region || ''}}</text>
         </view>
       </block>
     </view>
@@ -100,8 +98,25 @@
               data-id="{{item._id}}"
               data-name="{{item.name}}">
           <text class="result-name">{{item.name}}</text>
-          <text class="result-sub">{{item.nameEn || ''}}</text>
-          <text class="result-arrow">&#x203A;</text>
+        </view>
+      </block>
+    </view>
+
+    <!-- Wiki Articles Section -->
+    <view class="result-section" wx:if="{{articles.length > 0}}">
+      <view class="section-header">
+        <text class="section-icon">📖</text>
+        <text class="section-title">百科词条</text>
+        <text class="section-count">{{articles.length}}</text>
+      </view>
+      <block wx:for="{{articles}}" wx:key="topic">
+        <view class="result-item"
+              bindtap="onResultTap"
+              data-type="article"
+              data-id="{{item.topic}}"
+              data-name="{{item.title}}">
+          <text class="result-name">{{item.title}}</text>
+          <text class="result-sub">{{item.category || ''}}</text>
         </view>
       </block>
     </view>

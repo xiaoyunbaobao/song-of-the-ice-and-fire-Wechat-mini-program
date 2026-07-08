@@ -1,0 +1,83 @@
+<view class="comment-section">
+  <view class="divider-gold"></view>
+  <view class="section-title">💬 学城讨论区</view>
+  <text class="section-sub text-muted">本讨论区仅对七国之民开放 由大学士登记在册 请勿发布违规评论 三眼乌鸦注视着你们</text>
+
+  <!-- 未登录 -->
+  <view class="login-prompt card" wx:if="{{!isLogin}}" bindtap="onLogin">
+    <text class="login-icon">👤</text>
+    <text class="login-text">登录后参与讨论</text>
+    <text class="login-arrow">›</text>
+  </view>
+
+  <!-- 已登录：发表区域 -->
+  <view class="comment-form" wx:if="{{isLogin}}">
+    <view wx:if="{{replyToId}}" class="reply-hint">
+      <text>回复 @{{replyToUser}}：</text>
+      <text class="cancel-reply" bindtap="cancelReply">取消</text>
+    </view>
+    <view class="form-row">
+      <image wx:if="{{user.avatarUrl}}" class="user-avatar" src="{{user.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="user-avatar-placeholder">👤</view>
+      <view class="form-right">
+        <textarea class="comment-input" placeholder="{{replyToId ? '写下回复...' : '写下你的见解...'}}" placeholder-class="input-placeholder" value="{{inputValue}}" maxlength="{{replyToId ? 300 : 500}}" bindinput="onInput" auto-height />
+        <view class="form-footer">
+          <text class="input-count text-muted">{{inputValue.length}}/{{replyToId ? 300 : 500}}</text>
+          <view class="submit-btn" bindtap="{{replyToId ? 'onSubmitReply' : 'onSubmit'}}">
+            <text>{{replyToId ? '回复' : '发表'}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评论列表 -->
+  <view class="comment-list">
+    <view class="empty-comments" wx:if="{{comments.length === 0}}">
+      <text class="text-muted">暂无讨论，铁王座时刻欢迎大家自由发言</text>
+    </view>
+    <block wx:for="{{comments}}" wx:key="id">
+      <view class="comment-item card">
+        <view class="comment-header">
+          <image wx:if="{{item.avatar}}" class="comment-avatar" src="{{item.avatar}}" mode="aspectFill" />
+          <view wx:else class="comment-avatar-placeholder">👤</view>
+          <view class="comment-meta">
+            <text class="comment-name">{{item.userName}}</text>
+            <image wx:if="{{item.house && item.house.img}}" class="comment-house-img" src="{{item.house.img}}" mode="aspectFit" />
+            <text wx:else class="comment-house-emoji">{{item.house ? item.house.sigil : '🏴'}}</text>
+            <text class="comment-time text-muted">{{item._time}}</text>
+          </view>
+        </view>
+        <view class="comment-content text-body">{{item.content}}</view>
+        <view class="comment-actions">
+          <view class="action-btn" data-id="{{item.id}}" bindtap="onLike">
+            <text>❤️ {{item.likes || 0}}</text>
+          </view>
+          <view class="action-btn" wx:if="{{isLogin}}" data-id="{{item.id}}" data-user="{{item.userName}}" bindtap="onReplyTap">
+            <text>💬 回复</text>
+          </view>
+          <view class="action-btn" wx:if="{{isLogin && user.nickName === item.userId}}" data-id="{{item.id}}" bindtap="onDelete">
+            <text>🗑️ 删除</text>
+          </view>
+        </view>
+
+        <!-- 回复列表 -->
+        <view class="replies" wx:if="{{item.replies && item.replies.length}}">
+          <view wx:for="{{item.replies}}" wx:key="id" wx:for-item="r" class="reply-item">
+            <view class="reply-header">
+              <text class="reply-name">{{r.userName}}</text>
+              <image wx:if="{{r.house && r.house.img}}" class="comment-house-img" src="{{r.house.img}}" mode="aspectFit" />
+              <text wx:else class="comment-house-emoji">{{r.house ? r.house.sigil : '🏴'}}</text>
+              <text class="reply-to text-muted" wx:if="{{r.replyTo}}">回复 @{{r.replyTo}}</text>
+              <text class="reply-time text-muted">{{r._time}}</text>
+            </view>
+            <view class="reply-content text-body">{{r.content}}</view>
+            <view class="reply-like action-btn" data-id="{{item.id}}" data-rid="{{r.id}}" bindtap="onLike">
+              <text>❤️ {{r.likes || 0}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

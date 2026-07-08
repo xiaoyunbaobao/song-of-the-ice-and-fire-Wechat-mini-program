@@ -1,11 +1,45 @@
 /* 时间线 · 维斯特洛编年史 */
 .page { background: var(--bg-primary); min-height: 100vh; padding-bottom: 60rpx; }
 
-/* 头部 */
-.timeline-header { text-align: center; padding: 40rpx 32rpx 32rpx; border-bottom: 1rpx solid var(--border-color); }
-.header-icon { font-size: 64rpx; margin-bottom: 12rpx; }
-.header-title { font-size: 36rpx; font-weight: 700; color: var(--gold); letter-spacing: 6rpx; margin-bottom: 8rpx; }
-.header-sub { font-size: 22rpx; }
+/* 头部（瀑布流） */
+.timeline-header {
+  position: relative; text-align: center; padding: 48rpx 32rpx;
+  background: #1a1410; overflow: hidden;
+  height: 320rpx; display: flex; align-items: center; justify-content: center;
+  border-bottom: 1rpx solid var(--border-color);
+}
+.banner-waterfall { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; display: flex; flex-direction: column; gap: 8rpx; padding: 8rpx 0; }
+.banner-row { display: flex; flex-wrap: nowrap; height: 46%; }
+.banner-cover { height: 100%; width: 140rpx; flex-shrink: 0; margin-right: 8rpx; border-radius: 6rpx; opacity: 0.55; }
+.banner-row-1 { animation: tlScroll1 60s linear infinite; }
+.banner-row-2 { animation: tlScroll2 75s linear infinite; }
+@keyframes tlScroll1 { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes tlScroll2 { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+.hero-mask { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(18,12,6,0.5); z-index: 1; }
+
+/* 火星粒子 */
+.embers { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; overflow: hidden; }
+.ember { position: absolute; bottom: -10rpx; width: 6rpx; height: 6rpx; border-radius: 50%; background: var(--gold); opacity: 0; }
+.ember::after { content: ''; position: absolute; top: -4rpx; left: -4rpx; width: 14rpx; height: 14rpx; border-radius: 50%; background: radial-gradient(circle, rgba(212,168,83,0.6) 0%, transparent 70%); }
+.e1 { left: 10%; animation: emberRise 5s 0s ease-in infinite; }
+.e2 { left: 25%; animation: emberRise 6s 1s ease-in infinite; }
+.e3 { left: 40%; animation: emberRise 4.5s 0.5s ease-in infinite; }
+.e4 { left: 55%; animation: emberRise 7s 2s ease-in infinite; }
+.e5 { left: 70%; animation: emberRise 5.5s 1.5s ease-in infinite; }
+.e6 { left: 85%; animation: emberRise 6.5s 0.8s ease-in infinite; }
+.e7 { left: 15%; animation: emberRise 4s 3s ease-in infinite; width:4rpx; height:4rpx; }
+.e8 { left: 60%; animation: emberRise 5.8s 2.5s ease-in infinite; width:4rpx; height:4rpx; }
+@keyframes emberRise {
+  0%   { opacity: 0; transform: translateY(0) translateX(0) scale(0.5); }
+  20%  { opacity: 0.8; }
+  50%  { opacity: 0.5; transform: translateY(-150rpx) translateX(20rpx) scale(1.2); }
+  100% { opacity: 0; transform: translateY(-320rpx) translateX(-15rpx) scale(0.3); }
+}
+.header-content { position: relative; z-index: 2; }
+.header-icon { font-size: 52rpx; margin-bottom: 8rpx; text-shadow: 0 2rpx 8rpx rgba(0,0,0,0.6); }
+.header-title { font-size: 36rpx; font-weight: 700; color: var(--gold); letter-spacing: 6rpx; margin-bottom: 6rpx; text-shadow: 0 2rpx 10rpx rgba(0,0,0,0.7); }
+.header-sub { font-size: 22rpx; color: var(--text-secondary); }
 
 /* 时间线主体 */
 .timeline-body { position: relative; padding: 32rpx 24rpx 0; }

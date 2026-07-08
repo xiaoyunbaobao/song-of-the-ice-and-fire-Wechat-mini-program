@@ -2,10 +2,23 @@
 <view class="page">
   <!-- 头图 -->
   <view class="header-banner">
-    <view class="banner-icon">✒️</view>
-    <view class="banner-title">马丁如是说</view>
-    <view class="banner-subtitle text-muted">乔治·R·R·马丁历年访谈、博客、座谈会发言汇编</view>
-    <view class="banner-note text-muted">So Spake Martin · 参考冰与火之歌中文维基</view>
+    <view class="banner-waterfall">
+      <view class="banner-row banner-row-1">
+        <image wx:for="{{bannerRow1}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+        <image wx:for="{{bannerRow1}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+      </view>
+      <view class="banner-row banner-row-2">
+        <image wx:for="{{bannerRow2}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+        <image wx:for="{{bannerRow2}}" wx:key="*this" class="banner-cover" src="{{item}}" mode="aspectFill" />
+      </view>
+    </view>
+    <view class="hero-mask"></view>
+    <view class="banner-content">
+      <view class="banner-icon">✒️</view>
+      <view class="banner-title">马丁如是说</view>
+      <view class="banner-subtitle">乔治·R·R·马丁历年访谈、博客、座谈会发言汇编</view>
+      <view class="banner-note">So Spake Martin · 参考冰与火之歌中文维基</view>
+    </view>
   </view>
 
   <!-- 分类筛选 -->

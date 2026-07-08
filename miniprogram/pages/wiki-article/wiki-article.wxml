@@ -1,0 +1,40 @@
+<view class="page" wx:if="{{article}}">
+  <!-- 头部 -->
+  <view class="hero card">
+    <view class="article-category text-muted" wx:if="{{article.category}}">{{article.category}}</view>
+    <view class="article-title">{{article.title}}</view>
+  </view>
+
+  <!-- 正文 + 图片混排 -->
+  <view class="content card" wx:if="{{article.content && article.content.length}}">
+    <block wx:for="{{article.content}}" wx:key="index">
+      <text wx:if="{{!item.l && !item.img}}">{{item.t}}</text>
+      <view wx:if="{{item.l}}" class="wiki-link" data-target="{{item.l}}" bindtap="onWikiLink" style="display:inline;">{{item.t}}</view>
+      <view wx:if="{{item.img}}" class="img-block">
+        <image class="article-img" src="{{item.img}}" mode="widthFix" data-src="{{item.img}}" bindtap="previewImage" />
+        <view class="img-caption-placeholder text-muted" wx:if="{{!item.cap}}">
+          <text>—— 简介待补充 ——</text>
+        </view>
+        <view class="img-caption text-body" wx:else>
+          <text>{{item.cap}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 纯图片列表（旧格式兼容） -->
+  <view class="images-section" wx:if="{{article.images && article.images.length}}">
+    <view wx:for="{{article.images}}" wx:key="*this" class="image-card card">
+      <image class="article-img" src="{{item}}" mode="widthFix" data-src="{{item}}" bindtap="previewImage" />
+    </view>
+  </view>
+
+  <!-- 评论区 -->
+  <comment-section id="commentSection" target-id="{{topic}}" bindlogin="onLogin" />
+</view>
+
+<!-- 未找到 -->
+<view class="empty-state" wx:if="{{!article}}">
+  <text class="icon">📜</text>
+  <text class="text">词条不存在</text>
+</view>

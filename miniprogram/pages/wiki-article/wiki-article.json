@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "comment-section": "/components/comment-section/comment-section"
+  },
+  "navigationBarTitleText": "百科词条"
+}

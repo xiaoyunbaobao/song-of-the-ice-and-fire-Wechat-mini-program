@@ -1,0 +1,25 @@
+<view class="page" wx:if="{{event}}">
+  <view class="event-header">
+    <view class="event-name">{{event.name}}</view>
+    <view class="event-era">{{event.era}}</view>
+  </view>
+
+  <view class="event-desc">
+    <text>{{event.desc}}</text>
+  </view>
+
+  <view class="section" wx:if="{{relatedHouses.length}}">
+    <view class="section-title">关联家族</view>
+    <view class="house-list">
+      <view class="house-item" wx:for="{{relatedHouses}}" wx:key="_id"
+            bindtap="onHouseTap" data-id="{{item._id}}">
+        <text class="house-sigil">{{item.sigil}}</text>
+        <text class="house-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="timeline-link" bindtap="onTimelineTap">
+    查看完整时间线 →
+  </view>
+</view>

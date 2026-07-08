@@ -12,8 +12,8 @@ const HOUSE_ICONS = {
   house_greyjoy:   { sigil:'🐙', name:'海怪',     color:'#808080', img: SIGIL_PATH+'House_Greyjoy.jpg',     bg:'linear-gradient(135deg, #1a2a2a, #0a1a1a)' },
   house_arryn:     { sigil:'🦅', name:'新月猎鹰', color:'#4a90d9', img: SIGIL_PATH+'House_Arryn.jpg',       bg:'linear-gradient(135deg, #1a2a3e, #0d1a2a)' },
   house_martell:   { sigil:'☀️', name:'长枪贯日', color:'#d4744a', img: SIGIL_PATH+'House_Martell.jpg',     bg:'linear-gradient(135deg, #2a1a0a, #3e1a0a)' },
-  house_tully:     { sigil:'🐟', name:'银色鳟鱼', color:'#4a7a9c', img: '',                                 bg:'linear-gradient(135deg, #1a2a3e, #0d1a2a)' },
-  house_tyrell:    { sigil:'🌹', name:'金色玫瑰', color:'#4a9c4a', img: '',                                 bg:'linear-gradient(135deg, #1a2a1a, #0a1a0a)' },
+  house_tully:     { sigil:'🐟', name:'银色鳟鱼', color:'#4a7a9c', img: SIGIL_PATH+'House_Tully.jpg',      bg:'linear-gradient(135deg, #1a2a3e, #0d1a2a)' },
+  house_tyrell:    { sigil:'🌹', name:'金色玫瑰', color:'#4a9c4a', img: SIGIL_PATH+'House_Tyrell.jpg',     bg:'linear-gradient(135deg, #1a2a1a, #0a1a0a)' },
   house_velaryon:  { sigil:'🌊', name:'海马',     color:'#3cb4b4', img: SIGIL_PATH+'House_Velaryon2.jpg',    bg:'linear-gradient(135deg, #0a2a2a, #0a1a2a)' }
 };
 

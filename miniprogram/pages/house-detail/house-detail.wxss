@@ -85,6 +85,19 @@
   font-weight: 600;
 }
 
+/* 族谱 */
+.family-tree-img { width:100%; display:block; border-radius:12rpx; margin-top:8rpx; }
+
+/* 宗教信仰 */
+.religion-row { display:flex; gap:20rpx; padding:8rpx 0; }
+.religion-icon { font-size:52rpx; flex-shrink:0; margin-top:4rpx; }
+.religion-info { flex:1; }
+.religion-name { font-size:28rpx; font-weight:600; display:block; margin-bottom:8rpx; }
+
+/* 历史超链接词条 */
+.wiki-link { color:#d4a853; text-decoration:underline; text-underline-offset:4rpx; }
+.wiki-link:active { color:#e2c978; background:rgba(212,168,83,0.15); border-radius:4rpx; }
+
 /* ===== 通用区块卡片 ===== */
 .section-card {
   margin-bottom: 24rpx;
@@ -169,6 +182,11 @@
 .timeline-event {
   font-size: 26rpx;
   line-height: 1.6;
+}
+.event-clickable {
+  color: #c0b8a8;
+  text-decoration: underline;
+  text-underline-offset: 4rpx;
 }
 
 /* ===== 成员列表 ===== */

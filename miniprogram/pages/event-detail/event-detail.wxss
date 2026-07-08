@@ -1,0 +1,13 @@
+.page { padding: 24rpx; background: #1e1812; min-height: 100vh; }
+.event-header { background: #2a1f14; border-left: 8rpx solid #d4a853; padding: 24rpx; margin-bottom: 24rpx; border-radius: 8rpx; }
+.event-name { font-size: 40rpx; font-weight: bold; color: #d4a853; margin-bottom: 8rpx; }
+.event-era { font-size: 26rpx; color: #8a7b68; }
+.event-desc { background: #2a1f14; padding: 32rpx; border-radius: 8rpx; margin-bottom: 24rpx; }
+.event-desc text { font-size: 30rpx; color: #c0b8a8; line-height: 1.8; }
+.section { margin-bottom: 24rpx; }
+.section-title { font-size: 30rpx; color: #d4a853; font-weight: bold; margin-bottom: 16rpx; }
+.house-list { display: flex; flex-wrap: wrap; gap: 16rpx; }
+.house-item { background: #3a2f24; padding: 16rpx 24rpx; border-radius: 8rpx; display: flex; align-items: center; gap: 8rpx; }
+.house-sigil { font-size: 32rpx; }
+.house-name { font-size: 26rpx; color: #c0b8a8; }
+.timeline-link { text-align: center; padding: 24rpx; color: #d4a853; font-size: 28rpx; text-decoration: underline; }

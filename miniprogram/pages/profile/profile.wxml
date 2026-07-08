@@ -1,0 +1,84 @@
+<view class="page">
+  <!-- 用户信息 -->
+  <view class="user-card card" wx:if="{{isLogin}}">
+    <image wx:if="{{user.avatarUrl}}" class="profile-avatar" src="{{user.avatarUrl}}" mode="aspectFill" />
+    <view wx:else class="profile-avatar-placeholder">👤</view>
+    <view class="user-info">
+      <text class="user-name">{{user.nickName}}</text>
+      <text class="user-desc text-muted">学城学士</text>
+    </view>
+    <view class="logout-btn" bindtap="onLogout">
+      <text class="text-muted">退出</text>
+    </view>
+  </view>
+
+  <!-- 未登录 -->
+  <view class="user-card card" wx:if="{{!isLogin}}" bindtap="onLogin">
+    <view class="profile-avatar-placeholder">👤</view>
+    <view class="user-info">
+      <text class="user-name text-secondary">点击登录</text>
+      <text class="user-desc text-muted">使用微信头像和昵称</text>
+    </view>
+    <text class="login-arrow">›</text>
+  </view>
+
+  <!-- 统计 -->
+  <view class="stats-row" wx:if="{{isLogin}}">
+    <view class="stat-item card">
+      <text class="stat-num text-gold">{{commentCount}}</text>
+      <text class="stat-label text-muted">发言</text>
+    </view>
+    <view class="stat-item card">
+      <text class="stat-num text-gold">{{totalLikes}}</text>
+      <text class="stat-label text-muted">获赞</text>
+    </view>
+    <view class="stat-item card">
+      <text class="stat-num" style="color:{{rankColor}}">{{rankIcon}} {{rankLevel}}</text>
+      <text class="stat-label text-muted">头衔</text>
+    </view>
+  </view>
+
+  <!-- 我的家族 -->
+  <view class="section" wx:if="{{isLogin}}">
+    <view class="section-title">🛡️ 我的效忠</view>
+    <view class="house-display card" bindtap="toggleHousePicker">
+      <image wx:if="{{user.house && user.house.img}}" class="house-sigil-img" src="{{user.house.img}}" mode="aspectFit" />
+      <text wx:else class="house-sigil-big">{{user.house ? user.house.sigil : '🏴'}}</text>
+      <view class="house-display-info">
+        <text class="house-display-name">{{user.house ? user.house.name : '无旗兄弟会（点击选择）'}}</text>
+        <text class="text-muted house-display-hint">{{houseLocked ? '还需 ' + houseLockDays + ' 天才能更换' : (user.house && user.house.id !== 'none' ? '点击更换效忠（十天一次）' : '选择你效忠的家族')}}</text>
+      </view>
+      <text class="login-arrow">›</text>
+    </view>
+    <!-- 选择面板 -->
+    <view class="house-picker" wx:if="{{showHousePicker}}">
+      <view wx:for="{{houses}}" wx:key="id" class="house-option" data-id="{{item.id}}" bindtap="onChooseHouse">
+        <image wx:if="{{item.img}}" class="house-option-img" src="{{item.img}}" mode="aspectFit" />
+        <text wx:else class="house-option-sigil">{{item.sigil}}</text>
+        <text class="house-option-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 我的评论 -->
+  <view class="section" wx:if="{{isLogin && myComments.length > 0}}">
+    <view class="section-title">📝 我的发言记录</view>
+    <view wx:for="{{myComments}}" wx:key="id" class="my-comment card" data-topic="{{item._topic}}" bindtap="onCommentTap">
+      <view class="my-comment-meta">
+        <text class="text-muted">{{item._time}}</text>
+        <text class="text-gold">词条：{{item._topic}}</text>
+      </view>
+      <view class="my-comment-content text-body">{{item.content}}</view>
+      <view class="my-comment-stats text-muted" wx:if="{{item.likes}}">
+        ❤️ {{item.likes}} 人点赞
+      </view>
+    </view>
+  </view>
+
+  <view class="section" wx:if="{{isLogin && myComments.length === 0}}">
+    <view class="empty-state">
+      <text class="icon">📜</text>
+      <text class="text">你还没有发表过评论</text>
+    </view>
+  </view>
+</view>

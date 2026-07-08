@@ -1,0 +1,36 @@
+.page { background:var(--bg-primary); min-height:100vh; padding:24rpx; }
+
+.user-card { display:flex; align-items:center; padding:28rpx; margin-bottom:24rpx; }
+.profile-avatar { width:80rpx; height:80rpx; border-radius:50%; margin-right:20rpx; }
+.profile-avatar-placeholder { width:80rpx; height:80rpx; border-radius:50%; margin-right:20rpx; background:var(--bg-card); display:flex; align-items:center; justify-content:center; font-size:40rpx; }
+.user-info { flex:1; }
+.user-name { font-size:32rpx; font-weight:600; color:var(--text-primary); display:block; margin-bottom:4rpx; }
+.user-desc { font-size:24rpx; }
+.logout-btn { padding:10rpx 20rpx; background:rgba(255,255,255,0.05); border-radius:20rpx; font-size:24rpx; }
+.login-arrow { font-size:36rpx; color:var(--text-muted); }
+
+.stats-row { display:flex; gap:12rpx; margin-bottom:32rpx; }
+.stat-item { flex:1; text-align:center; padding:20rpx 12rpx; }
+.stat-num { font-size:32rpx; font-weight:700; display:block; margin-bottom:4rpx; overflow:hidden; white-space:nowrap; }
+.stat-label { font-size:22rpx; }
+
+.section { margin-bottom:24rpx; }
+.section-title { font-size:28rpx; font-weight:700; color:var(--text-primary); margin-bottom:16rpx; }
+
+.my-comment { padding:20rpx 24rpx; margin-bottom:12rpx; }
+.my-comment-meta { display:flex; justify-content:space-between; font-size:22rpx; margin-bottom:10rpx; }
+.my-comment-content { font-size:28rpx; line-height:1.7; margin-bottom:8rpx; }
+.my-comment-stats { font-size:22rpx; }
+
+/* 家族 */
+.house-display { display:flex; align-items:center; padding:24rpx 28rpx; margin-bottom:16rpx; }
+.house-sigil-big { font-size:52rpx; margin-right:20rpx; }
+.house-display-info { flex:1; }
+.house-display-name { font-size:28rpx; font-weight:600; color:var(--text-primary); display:block; margin-bottom:4rpx; }
+.house-display-hint { font-size:22rpx; }
+.house-picker { display:flex; flex-wrap:wrap; gap:12rpx; margin-bottom:16rpx; }
+.house-option { display:flex; align-items:center; gap:8rpx; padding:10rpx 20rpx; background:var(--bg-card); border:1rpx solid var(--border-color); border-radius:20rpx; }
+.house-sigil-img { width:60rpx; height:60rpx; margin-right:20rpx; }
+.house-option-img { width:36rpx; height:36rpx; }
+.house-option-sigil { font-size:28rpx; }
+.house-option-name { font-size:24rpx; color:var(--text-secondary); }

@@ -19,7 +19,7 @@
       <view class="hero-title">冰与火知识库</view>
       <view class="hero-subtitle">参考国内权威百科 冰与火中文维基网</view>
       <view class="hero-desc">致力于完整解析乔治·R·R·马丁所创造的奇幻世界</view>
-      <view class="hero-credit text-muted">部分历史性资料来自旧镇学城 · 鸣谢各位大学士</view>
+      <view class="hero-subtitle">部分历史性资料来自旧镇学城 · 鸣谢各位大学士</view>
     </view>
   </view>
 

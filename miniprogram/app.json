@@ -7,7 +7,11 @@
     "pages/house-detail/house-detail",
     "pages/martin-says/martin-says",
     "pages/timeline/timeline",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/event-detail/event-detail",
+    "pages/wiki-article/wiki-article",
+    "pages/culture/culture",
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,6 +43,12 @@
         "text": "如是说",
         "iconPath": "images/tab-quill.png",
         "selectedIconPath": "images/tab-quill-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tab-profile.png",
+        "selectedIconPath": "images/tab-profile-active.png"
       }
     ]
   },
