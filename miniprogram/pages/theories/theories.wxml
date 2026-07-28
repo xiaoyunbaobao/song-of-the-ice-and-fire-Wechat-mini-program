@@ -1,0 +1,64 @@
+<!-- 理论推测页 -->
+<view class="page">
+  <!-- 分类标签 -->
+  <scroll-view class="cat-scroll" scroll-x="true">
+    <view class="cat-tabs">
+      <text wx:for="{{categories}}" wx:key="id"
+        class="cat-tab {{activeCategory === item.id ? 'active' : ''}}"
+        data-id="{{item.id}}" bindtap="filterByCategory">
+        {{item.icon}} {{item.name}}
+      </text>
+    </view>
+  </scroll-view>
+
+  <!-- 理论列表 -->
+  <view class="theory-list" wx:if="{{filteredTheories.length}}">
+    <view class="theory-card" wx:for="{{filteredTheories}}" wx:key="id"
+          data-id="{{item.id}}" bindtap="toggleTheory">
+      <view class="theory-header">
+        <image wx:if="{{item.img}}" class="theory-img" src="{{item.img}}" mode="aspectFit" />
+        <text wx:else class="theory-icon">{{item.icon}}</text>
+        <view class="theory-title-row">
+          <text class="theory-title">{{item.title}}</text>
+          <view class="theory-meta">
+            <text class="theory-status" style="color:{{statusMap[item.status].color}}">
+              {{statusMap[item.status].label}}
+            </text>
+          </view>
+        </view>
+        <text class="expand-icon">{{item.expanded ? '▾' : '▸'}}</text>
+      </view>
+      <text class="theory-summary">{{item.summary}}</text>
+
+      <!-- 展开证据 -->
+      <view class="theory-evidence" wx:if="{{item.expanded}}">
+        <view class="ev-section-title">📜 原著证据</view>
+        <block wx:for="{{item.evidence}}" wx:key="index">
+          <view class="ev-item">
+            <text class="ev-tag tag-{{item.type}}">
+              {{item.type === 'book' ? '📖 原著' : item.type === 'interview' ? '🎙 马丁' : item.type === 'show' ? '📺 剧集' : ''}}
+            </text>
+            <text class="ev-text">{{item.text}}</text>
+          </view>
+        </block>
+
+        <!-- 关联 -->
+        <view class="ev-links" wx:if="{{item.relatedChars.length || item.relatedArticles.length}}">
+          <view class="ev-section-title">🔗 关联内容</view>
+          <view class="link-row">
+            <text wx:for="{{item.relatedChars}}" wx:key="*this" wx:for-item="cid"
+              class="link-tag tag-char" data-id="{{cid}}" bindtap="onCharTap" catchtap="onCharTap">
+              👤 角色
+            </text>
+            <text wx:for="{{item.relatedArticles}}" wx:key="*this" wx:for-item="aname"
+              class="link-tag tag-wiki" data-name="{{aname}}" bindtap="onArticleTap" catchtap="onArticleTap">
+              📖 {{aname}}
+            </text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="empty">该分类下暂无理论</view>
+</view>

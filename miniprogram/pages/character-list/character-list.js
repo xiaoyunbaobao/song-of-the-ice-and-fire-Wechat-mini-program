@@ -14,27 +14,6 @@ Page({
     letterHint: '',
 
     keyword: '',
-    selectedHouse: '',
-    houseOptions: [
-      { value: '', label: '全部家族' },
-      { value: 'house_stark', label: '史塔克' },
-      { value: 'house_lannister', label: '兰尼斯特' },
-      { value: 'house_targaryen', label: '坦格利安' },
-      { value: 'house_baratheon', label: '拜拉席恩' },
-      { value: 'house_greyjoy', label: '葛雷乔伊' },
-      { value: 'house_arryn', label: '艾林' },
-      { value: 'house_martell', label: '马泰尔' },
-      { value: 'house_tully', label: '徒利' },
-      { value: 'house_tyrell', label: '提利尔' },
-      { value: 'house_velaryon', label: '瓦列利安' },
-      { value: 'house_bolton', label: '波顿' },
-      { value: 'house_frey', label: '佛雷' },
-      { value: 'house_mormont', label: '莫尔蒙' },
-      { value: 'house_tarly', label: '塔利' },
-      { value: 'house_clegane', label: '克里冈' },
-      { value: 'house_reed', label: '黎德' }
-    ],
-    showFilter: false,
 
     loading: true,
     empty: false
@@ -48,28 +27,20 @@ Page({
   async loadCharacters(targetLetter) {
     this.setData({ loading: true });
 
-    let characters = [];
-    // 先尝试云数据库
+    // 优先本地数据（云端有20条限制）
+    let characters = this.getLocalCharactersFull();
+
+    // 尝试补充云数据
     try {
       if (wx.cloud) {
         const db = wx.cloud.database();
-        const res = await db.collection('characters').limit(200).get();
-        if (res.data && res.data.length > 0) {
-          characters = res.data;
+        const res = await db.collection('characters').limit(100).get();
+        if (res.data && res.data.length > characters.length) {
+          characters = res.data.map(c => ({...c, pinyin: PINYIN_MAP[c._id] || c.name.charAt(0).toUpperCase()}));
         }
       }
     } catch (err) {
-      console.log('云数据库未就绪，使用本地数据');
-    }
-
-    // 降级：从统一数据源构建
-    if (!characters.length) {
-      characters = this.getLocalCharactersFull();
-    }
-
-    // 家族筛选
-    if (this.data.selectedHouse) {
-      characters = characters.filter(c => c.houseId === this.data.selectedHouse);
+      // 云不可用时用本地
     }
 
     // 关键词搜索
@@ -131,11 +102,17 @@ Page({
 
   scrollToLetter(letter) {
     const index = this.data.groupedList.findIndex(g => g.letter === letter);
-    if (index >= 0) {
-      this.setData({ activeLetter: letter, showLetterHint: true, letterHint: letter });
-      wx.pageScrollTo({ selector: `#letter-${letter}`, duration: 200 });
-      setTimeout(() => { this.setData({ showLetterHint: false }); }, 1500);
-    }
+    if (index < 0) return;
+    this.setData({ activeLetter: letter, showLetterHint: true, letterHint: letter });
+    const query = wx.createSelectorQuery();
+    query.select('#letter-' + letter).boundingClientRect();
+    query.selectViewport().scrollOffset();
+    query.exec(res => {
+      if (res[0]) {
+        wx.pageScrollTo({ scrollTop: res[0].top + (res[1] ? res[1].scrollTop : 0) - 60, duration: 200 });
+      }
+    });
+    setTimeout(() => { this.setData({ showLetterHint: false }); }, 1500);
   },
 
   onLetterTap(e) {
@@ -169,16 +146,6 @@ Page({
 
   onSearch(e) {
     this.setData({ keyword: e.detail.keyword });
-    this.loadCharacters();
-  },
-
-  toggleFilter() {
-    this.setData({ showFilter: !this.data.showFilter });
-  },
-
-  onHouseFilter(e) {
-    const houseId = e.currentTarget.dataset.value;
-    this.setData({ selectedHouse: houseId, showFilter: false });
     this.loadCharacters();
   },
 

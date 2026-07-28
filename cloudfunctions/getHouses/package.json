@@ -1,5 +1,8 @@
 {
   "name": "getHouses",
   "version": "1.0.0",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
 }

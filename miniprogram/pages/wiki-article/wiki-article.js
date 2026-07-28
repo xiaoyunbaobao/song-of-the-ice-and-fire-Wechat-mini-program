@@ -3,6 +3,7 @@
  * 从 house-detail 等页面的超链接跳入
  * 支持文字 + 图片，文字内含可点击的次级超链接 + 评论
  */
+const { getCloudImg } = require('../../utils/cloud-img');
 const { saveUser } = require('../../utils/auth');
 
 Page({
@@ -23,6 +24,13 @@ Page({
     const article = this.getLocalArticle(decoded);
     if (!article) {
       console.log('wiki-article miss:', decoded);
+    }
+    // 转换云存储图片路径
+    if (article && article.content) {
+      article.content = article.content.map(item => {
+        if (item.img) return { ...item, img: getCloudImg(item.img.replace('/images/', 'images/')) };
+        return item;
+      });
     }
     wx.setNavigationBarTitle({ title: article ? article.title : decoded });
     this.setData({ article: article || { title: decoded, category: '', images: [], content: [{ t: '该词条「' + decoded + '」尚未收录。' }] } });

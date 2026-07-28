@@ -71,6 +71,7 @@
   margin-bottom: 8rpx;
 }
 
+.avatar-img { width:68rpx; height:68rpx; border-radius:50%; }
 .char-avatar {
   width: 68rpx;
   height: 68rpx;

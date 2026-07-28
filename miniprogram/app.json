@@ -11,6 +11,7 @@
     "pages/event-detail/event-detail",
     "pages/wiki-article/wiki-article",
     "pages/culture/culture",
+    "pages/theories/theories",
     "pages/profile/profile"
   ],
   "window": {

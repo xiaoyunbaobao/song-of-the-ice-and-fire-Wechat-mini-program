@@ -59,8 +59,12 @@
               data-type="character"
               data-id="{{item._id}}"
               data-name="{{item.name}}">
-          <text class="result-name">{{item.name}}</text>
-          <text class="result-sub">{{item.titles[0] || ''}}</text>
+          <image wx:if="{{item.avatar}}" class="result-avatar" src="{{item.avatar}}" mode="aspectFill" />
+          <view wx:else class="result-avatar-placeholder"><text>{{item.name[0]}}</text></view>
+          <view class="result-text">
+            <text class="result-name">{{item.name}}</text>
+            <text class="result-sub">{{item.titles[0] || ''}}</text>
+          </view>
         </view>
       </block>
     </view>

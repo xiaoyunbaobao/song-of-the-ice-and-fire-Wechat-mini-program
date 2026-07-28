@@ -159,6 +159,10 @@
 }
 
 /* ========== Result Item ========== */
+.result-avatar { width:56rpx; height:56rpx; border-radius:50%; flex-shrink:0; }
+.result-avatar-placeholder { width:56rpx; height:56rpx; border-radius:50%; background:#3a2f24; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.result-avatar-placeholder text { font-size:24rpx; font-weight:700; color:#c0b8a8; }
+.result-text { flex:1; overflow:hidden; }
 .result-item {
   display: flex;
   flex-direction: column;

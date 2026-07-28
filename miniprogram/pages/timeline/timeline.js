@@ -3,7 +3,8 @@
  * 涵盖：冰与火之歌、血与火、七王国的骑士
  * 纪年：BC=征服前 / AC=征服后 / 原著五卷 ~297-300 AC
  */
-const TIMELINE_BG = '/images/banner-timeline/';
+const { getCloudImg } = require('../../utils/cloud-img');
+const TIMELINE_BG = 'images/banner-timeline/';
 Page({
   data: {
     eras: [], activeEra: null,
@@ -20,12 +21,24 @@ Page({
       TIMELINE_BG+'bd8655f48246dff353fa87230ba735c1.jpg',
       TIMELINE_BG+'d5134c596daaa5dbaaa8ceb9839d2ee1.jpg',
       TIMELINE_BG+'f2b14e35a280a60f4dc05c24b4eda070.jpg',
-      TIMELINE_BG+'fbdebcd30de22255413ea318be537aba.jpg'
+      TIMELINE_BG+'fbdebcd30de22255413ea318be537aba.jpg',
+      TIMELINE_BG+'SnapInsta.to_727059472_18120696019762707_1553023134374025101_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_728167688_18121019035762707_6791964763756525900_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_728254744_1312646870986438_5946622554020638327_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_728786703_18121019044762707_4283463319236600363_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_728892570_18121019011762707_5114092763841656623_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_728937548_1316086230642502_4788015785482619517_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_729325378_1316086363975822_6443960489862177779_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_730331506_1316086537309138_8862562012485017830_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_730464018_1316085977309194_2232082104831374308_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_731653039_1316086420642483_7861040386639682578_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_732504816_1316085923975866_3567890682604388492_n.jpg',
+      TIMELINE_BG+'SnapInsta.to_733156740_1316086107309181_5064380387724205501_n.jpg'
     ];
     this.setData({
       eras: this.getTimelineData(),
-      bannerRow1: imgs,
-      bannerRow2: [...imgs].reverse()
+      bannerRow1: imgs.map(i => getCloudImg(i)),
+      bannerRow2: [...imgs].reverse().map(i => getCloudImg(i))
     });
   },
   toggleEra(e) {

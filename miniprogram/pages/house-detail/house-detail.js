@@ -1,3 +1,4 @@
+const { getCloudImg } = require('../../utils/cloud-img');
 const { getCharacterDetail } = require('../../utils/db');
 const { getHouseIcon, REGIONS } = require('../../utils/icons');
 const { EVENTS } = require('../../utils/data');

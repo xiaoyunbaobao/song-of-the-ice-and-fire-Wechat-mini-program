@@ -1,26 +1,10 @@
 <!-- 角色列表 · A-Z 索引 + 家族筛选 -->
 <view class="page">
-  <!-- 搜索 + 筛选 -->
+  <!-- 搜索 -->
   <view class="header-section">
     <search-bar placeholder="搜索角色名称..." bindsearch="onSearch" />
-    <view class="filter-row">
-      <view class="filter-btn {{showFilter ? 'active' : ''}}" bindtap="toggleFilter">
-        <text>{{selectedHouse ? houseOptions[selectedHouse] : '全部家族'}}</text>
-        <text class="arrow">{{showFilter ? '▲' : '▼'}}</text>
-      </view>
-      <view class="result-hint text-muted" wx:if="{{allCharacters.length}}">
-        {{allCharacters.length}} 位角色
-      </view>
-    </view>
-    <!-- 家族筛选下拉 -->
-    <view class="filter-drop" wx:if="{{showFilter}}">
-      <text
-        wx:for="{{houseOptions}}"
-        wx:key="value"
-        class="filter-option {{selectedHouse === item.value ? 'active' : ''}}"
-        data-value="{{item.value}}"
-        bindtap="onHouseFilter"
-      >{{item.label}}</text>
+    <view class="result-hint text-muted" wx:if="{{allCharacters.length}}" style="padding:4rpx 24rpx">
+      {{allCharacters.length}} 位角色
     </view>
   </view>
 
@@ -49,17 +33,12 @@
         bindtap="onCharacterTap"
       >
         <view class="char-avatar">
-          <text>{{item.name[0]}}</text>
+          <image wx:if="{{item.avatar}}" class="avatar-img" src="{{item.avatar}}" mode="aspectFill" />
+          <text wx:else>{{item.name[0]}}</text>
         </view>
         <view class="char-info">
           <view class="char-name">{{item.name}}</view>
           <view class="char-titles text-secondary">{{item.titles[0] || ''}}</view>
-        </view>
-        <view class="char-status">
-          <text wx:if="{{item.status === 'alive'}}" class="tag tag-status-alive">存活</text>
-          <text wx:elif="{{item.status === 'dead'}}" class="tag tag-status-dead">已故</text>
-          <text wx:elif="{{item.status === 'resurrected'}}" class="tag tag-fire">复活</text>
-          <text wx:else class="tag tag-ice">未知</text>
         </view>
       </view>
     </view>

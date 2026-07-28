@@ -2,7 +2,8 @@
  * 马丁如是说 — 参考冰与火之歌中文维基 SSM 风格
  * 来源：乔治·R·R·马丁历年访谈、博客、座谈会发言
  */
-const MARTIN_BG = '/images/banner-martin/';
+const { getCloudImg } = require('../../utils/cloud-img');
+const MARTIN_BG = 'images/banner-martin/';
 Page({
   data: {
     loading: false,
@@ -40,7 +41,7 @@ Page({
       MARTIN_BG+'f10bc63c56942bbca0970e36818f410b.jpg',
       MARTIN_BG+'f924785003b326fe77e299f41bda2e1f.jpg'
     ];
-    this.setData({ bannerRow1: imgs, bannerRow2: [...imgs].reverse() });
+    this.setData({ bannerRow1: imgs.map(i => getCloudImg(i)), bannerRow2: [...imgs].reverse().map(i => getCloudImg(i)) });
   },
 
   loadEntries() {

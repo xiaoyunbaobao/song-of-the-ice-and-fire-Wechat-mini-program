@@ -2,7 +2,7 @@
 // 获取单个角色详情，包含关联家族信息
 
 const cloud = require('wx-server-sdk');
-cloud.init();
+cloud.init({ env: 'cloud1-1g5ys3sne8db5912' });
 const db = cloud.database();
 
 exports.main = async (event, context) => {

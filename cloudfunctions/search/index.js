@@ -2,7 +2,7 @@
 // 全文搜索，跨 characters、houses、events 三个集合
 
 const cloud = require('wx-server-sdk');
-cloud.init();
+cloud.init({ env: 'cloud1-1g5ys3sne8db5912' });
 const db = cloud.database();
 
 exports.main = async (event, context) => {

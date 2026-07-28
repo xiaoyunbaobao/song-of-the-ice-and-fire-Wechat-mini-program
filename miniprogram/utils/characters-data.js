@@ -3326,6 +3326,1254 @@ const PROFILES={
       "char_dunk"
     ],
     "_house": null
+  },
+  "char_lyanna": {
+    "_id": "char_lyanna",
+    "name": "lyanna",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "",
+    "bookBio": "艾德·史塔克的妹妹——她是一个狼血女孩。赫伦堡比武大会上雷加夺冠后将爱与美的桂冠献给她——而非妻子伊莉亚·马泰尔。这一举动引发了篡夺者战争。在极乐塔死于血床——答应我，奈德——她的临终嘱托改变了七国的命运。她是琼恩·雪诺的母亲——他从来没有离开过她的怀抱——直到她的最后一息。奈德为保护她而背负了私生子的污名一生。",
+    "showBio": "S6极乐塔场景。S7闪回揭示与雷加秘密结婚。",
+    "differences": [
+      {
+        "aspect": "揭示",
+        "book": "尚未正式揭示——线索极多。",
+        "show": "S7明确确认。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "权力的游戏"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "史塔克"
+    ],
+    "relatedCharacters": [
+      "char_eddard_stark",
+      "char_rhaegar",
+      "char_jon_snow"
+    ],
+    "_house": {
+      "name": "史塔克家族",
+      "sigil": "冰原狼",
+      "words": "凛冬将至",
+      "region": "北境",
+      "seat": "临冬城"
+    }
+  },
+  "char_aerys_ii": {
+    "_id": "char_aerys_ii",
+    "name": "aerys ii",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "",
+    "bookBio": "坦格利安王朝末代国王——他开始时很好——但后来他变了。被暮谷城囚禁半年后精神崩溃——他出来后不再相信任何人。痴迷野火——burn them all——计划在君临地下埋满野火罐以毁灭全城。他的指甲长到像爪子。被詹姆·兰尼斯特在铁王座前弑杀——他死的时候还在笑着——火焰在他眼中燃烧。",
+    "showBio": "在剧集闪回中出现。疯王行刑布兰登与瑞卡德的场景多次被提及。",
+    "differences": [
+      {
+        "aspect": "疯狂过程",
+        "book": "逐步崩溃",
+        "show": "出现的都是已经疯了的状态"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "权力的游戏"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "坦格利安",
+      "国王",
+      "疯狂",
+      "野火"
+    ],
+    "relatedCharacters": [
+      "char_jaime_lannister",
+      "char_rhaegar",
+      "char_daenerys"
+    ],
+    "_house": {
+      "name": "坦格利安家族",
+      "sigil": "三头龙",
+      "words": "血火同源",
+      "region": "王领",
+      "seat": "君临"
+    }
+  },
+  "char_mance": {
+    "_id": "char_mance",
+    "name": "mance",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "塞伦·希德",
+    "bookBio": "塞外之王——前守夜人游骑兵，背叛长城成为自由民之王。他统一了所有部落——不是用剑，而是用言辞。琼恩·雪诺与他建立了复杂的尊重关系——他比我更像一个真正的国王。被史坦尼斯俘虏后——梅丽珊卓用红宝石魔法将他的身份换成了另一个野人——被烧死的那个人不是曼斯。他在临冬城执行秘密任务。我在长城两边都生活过——自由比任何誓言都更重要。",
+    "showBio": "S3-5。被史坦尼斯下令烧死——但剧中删除了身份替换线索。",
+    "differences": [
+      {
+        "aspect": "身份替换",
+        "book": "梅丽珊卓用魔法将曼斯换成叮当衫——曼斯还活着。",
+        "show": "此情节完全删除——曼斯确定被烧死。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "冰雨的风暴",
+        "魔龙的狂舞"
+      ],
+      "seasons": [
+        3,
+        4,
+        5
+      ]
+    },
+    "tags": [
+      "自由民",
+      "守夜人"
+    ],
+    "relatedCharacters": [
+      "char_jon_snow",
+      "char_melisandre"
+    ],
+    "_house": null
+  },
+  "char_ygritte": {
+    "_id": "char_ygritte",
+    "name": "ygritte",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "罗斯·莱斯利",
+    "bookBio": "火吻而生——琼恩·雪诺的第一位爱人。红发、尖牙、满口谎言——你什么都不懂，琼恩·雪诺。她在斯卡格斯山口遇见琼恩——那天晚上我本该杀了你。她教琼恩什么是自由、什么是责任、什么是背叛。被黑城堡的箭杀死——她死在我怀里——她的最后一句话是你什么都不懂。",
+    "showBio": "S2-4。罗斯·莱斯利饰演。耶哥蕊特之死场景获艾美奖提名。剧中与琼恩的化学反应极佳——演员后来在现实中结婚。",
+    "differences": [
+      {
+        "aspect": "基本忠实",
+        "book": "两人的关系——山洞——死亡——基本一致。",
+        "show": "剧中更强调她的战斗力。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "列王的纷争",
+        "冰雨的风暴"
+      ],
+      "seasons": [
+        2,
+        3,
+        4
+      ]
+    },
+    "tags": [
+      "自由民"
+    ],
+    "relatedCharacters": [
+      "char_jon_snow"
+    ],
+    "_house": null
+  },
+  "char_loras": {
+    "_id": "char_loras",
+    "name": "loras",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "芬恩·琼斯",
+    "bookBio": "百花骑士——维斯特洛最著名的比武骑士。他的盔甲上镶嵌着蓝宝石和翡翠。与蓝礼·拜拉席恩相爱——当太阳落山时——没有蜡烛能代替它。蓝礼被杀后加入御林铁卫。在龙石岛攻城战中严重烧伤——火焰夺走了他的一切。",
+    "showBio": "S1-6。S6贝勒大圣堂被野火炸死。剧中与蓝礼的关系更公开——性格比书中更软弱。",
+    "differences": [
+      {
+        "aspect": "性格",
+        "book": "更锋锐——玫瑰有刺。",
+        "show": "更柔和。"
+      },
+      {
+        "aspect": "死亡",
+        "book": "龙石岛攻城烧伤——生死未卜。",
+        "show": "S6野火爆炸中死亡。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "列王的纷争",
+        "冰雨的风暴",
+        "群鸦的盛宴"
+      ],
+      "seasons": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "tags": [
+      "提利尔",
+      "骑士",
+      "比武"
+    ],
+    "relatedCharacters": [
+      "char_renly",
+      "char_margaery"
+    ],
+    "_house": {
+      "name": "提利尔家族",
+      "sigil": "金玫瑰",
+      "words": "生生不息",
+      "region": "河湾地",
+      "seat": "高庭"
+    }
+  },
+  "char_elia": {
+    "_id": "char_elia",
+    "name": "elia",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "",
+    "bookBio": "多恩公主——雷加·坦格利安的妻子。她温柔——身体很脆弱。雷加在赫伦堡比武中忽略了她。君临沦陷时被魔山格雷果·克里冈奸杀——他先杀了她的孩子——然后轮到她。她的死引燃了奥柏伦·马泰尔对魔山的复仇之火——你奸杀了她——你杀了她的孩子。",
+    "showBio": "仅在剧集回忆中被提及。奥柏伦在S4E8的怒吼中引出她的名字。",
+    "differences": [
+      {
+        "aspect": "剧中角色",
+        "book": "通过奥柏伦和詹姆的回忆详细描绘。",
+        "show": "大幅简化。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "权力的游戏"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "马泰尔",
+      "君临沦陷"
+    ],
+    "relatedCharacters": [
+      "char_rhaegar",
+      "char_oberyn",
+      "char_gregor"
+    ],
+    "_house": {
+      "name": "马泰尔家族",
+      "sigil": "太阳",
+      "words": "不屈不挠",
+      "region": "多恩",
+      "seat": "阳戟城"
+    }
+  },
+  "char_balon": {
+    "_id": "char_balon",
+    "name": "balon",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "帕特里克·马拉海德",
+    "bookBio": "铁群岛之王——铁群岛之王反抗绿地上的王——一次又一次。葛雷乔伊叛乱被劳勃和艾德镇压——两个儿子战死——席恩被作为人质带走。五王之战中再次宣布独立——但很快在暴风雨中坠入海中——实际上被弟弟攸伦派出的无面者暗杀。",
+    "showBio": "S2-6。S6被攸伦在暴风雨中推下桥——剧中直接展现攸伦动手。",
+    "differences": [
+      {
+        "aspect": "死亡",
+        "book": "暗示攸伦雇无面者暗杀。",
+        "show": "攸伦直接推下桥。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "列王的纷争"
+      ],
+      "seasons": [
+        2,
+        3,
+        6
+      ]
+    },
+    "tags": [
+      "葛雷乔伊",
+      "铁群岛"
+    ],
+    "relatedCharacters": [
+      "char_theon_greyjoy",
+      "char_asha",
+      "char_euron"
+    ],
+    "_house": {
+      "name": "葛雷乔伊家族",
+      "sigil": "海怪",
+      "words": "强取胜于苦耕",
+      "region": "铁群岛",
+      "seat": "派克城"
+    }
+  },
+  "char_meera": {
+    "_id": "char_meera",
+    "name": "meera",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "艾莉·肯德里克",
+    "bookBio": "霍兰·黎德的女儿——布兰最忠诚的旅伴和保护者。持蛙矛和三叉渔网——她比看起来更强。带布兰越过绝境长城找到三眼乌鸦——她背着他——当他不能走的时候——她替他走。她给布兰讲述笑面树骑士的故事——每一个故事都是一块拼图。当布兰变得越来越不像布兰时——她看着他——眼睛里全是泪水。",
+    "showBio": "S3-4。剧中角色大幅削减——超出长城的旅程被压缩。",
+    "differences": [
+      {
+        "aspect": "角色重要性",
+        "book": "关键角色——布兰的保护者和灵魂锚点。",
+        "show": "大幅削减。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "列王的纷争",
+        "冰雨的风暴",
+        "魔龙的狂舞"
+      ],
+      "seasons": [
+        3,
+        4
+      ]
+    },
+    "tags": [
+      "黎德",
+      "绿之视野"
+    ],
+    "relatedCharacters": [
+      "char_bran_stark",
+      "char_jojen"
+    ],
+    "_house": {
+      "name": "黎德家族",
+      "sigil": "蜥蜴-狮子",
+      "words": "不详",
+      "region": "北境",
+      "seat": "灰水望"
+    }
+  },
+  "char_jojen": {
+    "_id": "char_jojen",
+    "name": "jojen",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "托马斯·桑斯特",
+    "bookBio": "小个子爷爷——霍兰·黎德的儿子，拥有绿之视野。他知道自己会死——这不是你的错——这是我自己的路。带着布兰找到了三眼乌鸦。书中暗示他可能被布兰/夏天以血祭吞噬——他变得越来越虚弱——直到只剩下一双眼睛。",
+    "showBio": "S3-4。被尸鬼杀死——剧集删除了血祭暗示。",
+    "differences": [
+      {
+        "aspect": "死亡",
+        "book": "暗示被血祭吞噬——极为黑暗。",
+        "show": "被尸鬼攻击杀死——大幅简化。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "列王的纷争",
+        "冰雨的风暴",
+        "魔龙的狂舞"
+      ],
+      "seasons": [
+        3,
+        4
+      ]
+    },
+    "tags": [
+      "黎德",
+      "绿之视野"
+    ],
+    "relatedCharacters": [
+      "char_bran_stark",
+      "char_meera"
+    ],
+    "_house": {
+      "name": "黎德家族",
+      "sigil": "蜥蜴-狮子",
+      "words": "不详",
+      "region": "北境",
+      "seat": "灰水望"
+    }
+  },
+  "char_hodor": {
+    "_id": "char_hodor",
+    "name": "hodor",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "克里斯蒂安·奈恩",
+    "bookBio": "阿多——他只会说这个词。这是他的名字——也是他的全部。曾是临冬城马夫威尔斯——布兰通过绿之视野进入他的过去——梅拉大喊Hold the door——过去的威尔斯开始扭曲——Hold the door——Holddoor——Hodor。直到他的语言只剩这一个词。他在临冬城的地道中守住那扇门——他用最后的力气撑住门——他知道这就是他一生的意义。",
+    "showBio": "S1-6。S6E5完整揭示起源——被广泛认为是剧集最佳单集之一。",
+    "differences": [
+      {
+        "aspect": "起源",
+        "book": "书中尚未揭示——马丁确认与剧中一致。",
+        "show": "S6E5完整呈现——马丁说1991年就想好了。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "权力的游戏",
+        "列王的纷争",
+        "冰雨的风暴",
+        "群鸦的盛宴",
+        "魔龙的狂舞"
+      ],
+      "seasons": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    "tags": [
+      "史塔克"
+    ],
+    "relatedCharacters": [
+      "char_bran_stark",
+      "char_meera"
+    ],
+    "_house": null
+  },
+  "char_osha": {
+    "_id": "char_osha",
+    "name": "osha",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "娜塔莉·特纳",
+    "bookBio": "聪明的野人女子——她能在黑暗中看到——能在雪地中找到路。被史塔克家俘虏后效忠——她跪下了——不是出于恐惧——而是出于尊重。带瑞肯和毛毛狗逃亡——布兰在绿之视野中看到他们在一个满是独角兽和山羊的地方——斯卡格斯岛。她答应保护瑞肯——用她的命。",
+    "showBio": "S1-3, S6。S6被拉姆斯杀死——与书中不同。",
+    "differences": [
+      {
+        "aspect": "死亡",
+        "book": "仍活着——在斯卡格斯岛保护瑞肯。",
+        "show": "S6被拉姆斯·波顿杀死。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "权力的游戏",
+        "列王的纷争",
+        "冰雨的风暴",
+        "魔龙的狂舞"
+      ],
+      "seasons": [
+        1,
+        2,
+        3,
+        6
+      ]
+    },
+    "tags": [
+      "自由民"
+    ],
+    "relatedCharacters": [
+      "char_bran_stark"
+    ],
+    "_house": null
+  },
+  "char_kevan": {
+    "_id": "char_kevan",
+    "name": "kevan",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "伊恩·盖尔德",
+    "bookBio": "泰温的弟弟——他一生都活在兄长的影子下——但他比泰温更有人性。泰温死后被瑟曦排挤出君临，后又返回收拾残局。他开始修复财政恢复秩序——然后瓦里斯用十字弓射杀了他——为了维持混乱。《魔龙的狂舞》尾声。",
+    "showBio": "S1-6。S6贝勒大圣堂被野火炸死——与书中不同。",
+    "differences": [
+      {
+        "aspect": "死亡",
+        "book": "被瓦里斯用十字弓刺杀——为了维持混乱。",
+        "show": "S6死于野火爆炸。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "权力的游戏",
+        "列王的纷争",
+        "冰雨的风暴",
+        "群鸦的盛宴",
+        "魔龙的狂舞"
+      ],
+      "seasons": [
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    "tags": [
+      "兰尼斯特"
+    ],
+    "relatedCharacters": [
+      "char_tywin_lannister",
+      "char_cersei_lannister"
+    ],
+    "_house": {
+      "name": "兰尼斯特家族",
+      "sigil": "雄狮",
+      "words": "听我怒吼",
+      "region": "西境",
+      "seat": "凯岩城"
+    }
+  },
+  "char_pycelle": {
+    "_id": "char_pycelle",
+    "name": "pycelle",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "朱利安·格洛弗",
+    "bookBio": "御前会议大学士——他看起来像一个虚弱的老头——但他不是。表面老态龙钟实则精明世故——他故意让人觉得他无能——这样就没有人会在乎他。效忠兰尼斯特家族数十年——他知道的秘密比任何活人都多——但他带到了坟墓里。",
+    "showBio": "S1-6。S6被科本的小小鸟用匕首刺杀。",
+    "differences": [
+      {
+        "aspect": "死亡",
+        "book": "被瓦里斯用十字弓射杀。",
+        "show": "被科本的小小鸟刺杀。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "权力的游戏",
+        "列王的纷争",
+        "冰雨的风暴",
+        "群鸦的盛宴"
+      ],
+      "seasons": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "tags": [
+      "学城",
+      "御前会议"
+    ],
+    "relatedCharacters": [
+      "char_tywin_lannister"
+    ],
+    "_house": null
+  },
+  "char_bronn": {
+    "_id": "char_bronn",
+    "name": "bronn",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "杰罗姆·弗林",
+    "bookBio": "雇佣兵波隆在鹰巢城为提利昂出战——他战斗不是为了荣誉——而是为了活下去。后被封为黑水河的波隆爵士——他给养子取名提利昂来纪念朋友。他不是骑士——他是幸存者——在所有玩权力游戏的人中——他可能会是最后一个站着的人。",
+    "showBio": "S1-8。S8成为高庭公爵和财政大臣——剧集给了他更大的结局。",
+    "differences": [
+      {
+        "aspect": "结局",
+        "book": "仍在河湾地——面临复杂的政治局势。",
+        "show": "成为高庭公爵、财政大臣——获得最大奖赏。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "权力的游戏",
+        "列王的纷争",
+        "冰雨的风暴",
+        "群鸦的盛宴"
+      ],
+      "seasons": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "tags": [
+      "雇佣兵",
+      "提利昂"
+    ],
+    "relatedCharacters": [
+      "char_tyrion_lannister"
+    ],
+    "_house": null
+  },
+  "char_daario": {
+    "_id": "char_daario",
+    "name": "daario",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "米契尔·哈思曼",
+    "bookBio": "次子团团长——他的胡子是蓝色的——分成三叉——他的牙齿是金色的。背叛同僚投靠丹妮莉丝，成为她最信任的战士和情人——他是火焰——她不应该碰他。被丹妮莉丝留在弥林处理后事。",
+    "showBio": "S3-6。演员更换过。角色塑造比书中更简单——去掉了书中夸张的外貌描写。",
+    "differences": [
+      {
+        "aspect": "外貌",
+        "book": "极其浮夸——蓝胡子、金牙。",
+        "show": "外表正常化——去掉了所有夸张元素。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "冰雨的风暴",
+        "魔龙的狂舞"
+      ],
+      "seasons": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "tags": [
+      "雇佣兵"
+    ],
+    "relatedCharacters": [
+      "char_daenerys"
+    ],
+    "_house": null
+  },
+  "char_greyworm": {
+    "_id": "char_greyworm",
+    "name": "greyworm",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "雅各布·安德森",
+    "bookBio": "无垢者指挥官——他被抽打了十年——直到恐惧从他的灵魂中被抽干。丹妮莉丝解放无垢者后他选择效忠——不是因为命令——而是因为选择。他是完美的战士——他的盾墙从未被击破。与弥桑黛相爱——无垢者也能爱吗——也许能。",
+    "showBio": "S3-8。S8在弥桑黛死后愤怒——最终乘船前往纳斯。",
+    "differences": [
+      {
+        "aspect": "角色深度",
+        "book": "内部视角更丰富——对自由意志的哲学思考。",
+        "show": "更注重动作和忠诚。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "冰雨的风暴",
+        "魔龙的狂舞"
+      ],
+      "seasons": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "tags": [
+      "无垢者"
+    ],
+    "relatedCharacters": [
+      "char_daenerys",
+      "char_missandei"
+    ],
+    "_house": null
+  },
+  "char_missandei": {
+    "_id": "char_missandei",
+    "name": "missandei",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "娜塔莉·伊曼纽尔",
+    "bookBio": "十岁能说十九种语言——她的智慧比任何成人更清晰。被丹妮莉丝从奴隶商手中解放——她选择留下——不是因为必须——而是她想要看着那个解放了她的人。书中她只是一个孩子——她教丹妮莉丝什么是怜悯。",
+    "showBio": "S3-8。年龄上调至成年。S8被瑟曦处决——dracarys——她的遗言触发了丹妮莉丝最终的愤怒。",
+    "differences": [
+      {
+        "aspect": "年龄",
+        "book": "10岁——一个极其聪慧的孩子。",
+        "show": "成年人——与灰虫子的恋情被大量发展。"
+      },
+      {
+        "aspect": "结局",
+        "book": "尚未死——仍在弥林。",
+        "show": "被瑟曦处决。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "冰雨的风暴",
+        "魔龙的狂舞"
+      ],
+      "seasons": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "tags": [
+      "丹妮莉丝",
+      "翻译"
+    ],
+    "relatedCharacters": [
+      "char_daenerys",
+      "char_greyworm"
+    ],
+    "_house": null
+  },
+  "char_gilly": {
+    "_id": "char_gilly",
+    "name": "gilly",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "汉娜·穆雷",
+    "bookBio": "卡斯特的女儿和妻子——她的孩子本应被献给更寒冷的诸神。山姆威尔·塔利带她和婴儿逃离——她从未见过长城以南的世界。她的孩子被山姆立誓保护。她的勇敢是安静的——她的勇气不体现在剑上——而是在每一次拒绝向恐惧屈服中。",
+    "showBio": "S2-8。基本忠实于原著。",
+    "differences": [
+      {
+        "aspect": "基本忠实",
+        "book": "两人关系更复杂——山姆的自卑和吉莉的坚韧。",
+        "show": "更传统的浪漫化处理。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "列王的纷争",
+        "冰雨的风暴",
+        "群鸦的盛宴"
+      ],
+      "seasons": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "tags": [
+      "自由民"
+    ],
+    "relatedCharacters": [
+      "char_samwell"
+    ],
+    "_house": null
+  },
+  "char_jeor": {
+    "_id": "char_jeor",
+    "name": "jeor",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "詹姆斯·考斯莫",
+    "bookBio": "熊老——守夜人第997任总司令。乔拉·莫尔蒙之父。将长爪——莫尔蒙家族祖传瓦雷利亚钢剑——赠予琼恩·雪诺——你救了我的命——这把剑是你的。在卡斯特堡垒被叛乱的守夜人兄弟杀害。",
+    "showBio": "S1-3。基本忠实于原著。",
+    "differences": [
+      {
+        "aspect": "基本忠实",
+        "book": "熊老的角色弧与原著一致。",
+        "show": "基本一致。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "权力的游戏",
+        "列王的纷争",
+        "冰雨的风暴"
+      ],
+      "seasons": [
+        1,
+        2,
+        3
+      ]
+    },
+    "tags": [
+      "守夜人",
+      "莫尔蒙"
+    ],
+    "relatedCharacters": [
+      "char_jon_snow",
+      "char_jorah"
+    ],
+    "_house": {
+      "name": "莫尔蒙家族",
+      "sigil": "黑熊",
+      "words": "昂首屹立",
+      "region": "北境",
+      "seat": "熊岛"
+    }
+  },
+  "char_arianne": {
+    "_id": "char_arianne",
+    "name": "arianne",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "",
+    "bookBio": "道朗·马泰尔的长女——多恩继承人。她想用王冠来证明自己——来证明她不仅仅是父亲轮椅后面的影子。在《群鸦的盛宴》中策划拥立弥赛拉·拜拉席恩为女王——女王制造者计划失败。但道朗最终告诉她真相：你不是我的继承人——你是我的合作伙伴——我们有一个比王冠更大的计划。蝮蛇藏在草丛中——她和沙蛇们是多恩的未来。",
+    "showBio": "剧中完全删除——多恩线最大的缺失。她的POV章节是第4-5卷的重要视角。",
+    "differences": [
+      {
+        "aspect": "角色存在",
+        "book": "核心POV角色——多恩线的灵魂。",
+        "show": "完全删除。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "群鸦的盛宴",
+        "魔龙的狂舞"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "马泰尔",
+      "多恩"
+    ],
+    "relatedCharacters": [
+      "char_doran",
+      "char_oberyn"
+    ],
+    "_house": {
+      "name": "马泰尔家族",
+      "sigil": "太阳",
+      "words": "不屈不挠",
+      "region": "多恩",
+      "seat": "阳戟城"
+    }
+  },
+  "char_lucerys": {
+    "_id": "char_lucerys",
+    "name": "lucerys",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "艾略特·格里豪特",
+    "bookBio": "小路——雷妮拉的次子，骑阿拉克斯。十三岁时出使风息堡——在风暴中与伊蒙德相遇——瓦格哈尔从暴风雨中冲出来——一口吞下了阿拉克斯和它的骑手。他的死是血龙狂舞首场龙战——也是内战的导火索。他还是个孩子——但龙不在乎年龄——战争也不在乎。",
+    "showBio": "S1E10。风暴地龙战场面是电视史上最惊心动魄的龙战之一——剧中改为半失控状态。",
+    "differences": [
+      {
+        "aspect": "追杀",
+        "book": "伊蒙德主动追杀——冷血谋杀。",
+        "show": "改为半失控——增添了悲剧元素。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "血与火",
+        "公主与王后"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "瓦列利安",
+      "黑党",
+      "血龙狂舞"
+    ],
+    "relatedCharacters": [
+      "char_rhaenyra",
+      "char_aemond"
+    ],
+    "_house": {
+      "name": "瓦列利安家族",
+      "sigil": "海马",
+      "words": "古老·忠誠·勇毅",
+      "region": "王领",
+      "seat": "潮头岛"
+    }
+  },
+  "char_laenor": {
+    "_id": "char_laenor",
+    "name": "laenor",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "约翰·麦克米兰",
+    "bookBio": "雷妮拉的第一任丈夫——海烟的骑手。与乔佛里·隆莫斯相爱——他的婚姻是政治——他的爱情不是。在血龙狂舞前夕被情人所杀——据说他们争吵——然后剑拔了出来。书中他的同性恋不是秘密——宫廷中的每个人都知道。",
+    "showBio": "S1。剧中假死——被安排与情人逃往厄斯索斯——比书中结局更温情。",
+    "differences": [
+      {
+        "aspect": "死亡",
+        "book": "被情人所杀——两人都死了。",
+        "show": "假死——与情人逃往自由城邦。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "血与火"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "瓦列利安",
+      "海烟",
+      "血龙狂舞"
+    ],
+    "relatedCharacters": [
+      "char_rhaenyra",
+      "char_corlys"
+    ],
+    "_house": {
+      "name": "瓦列利安家族",
+      "sigil": "海马",
+      "words": "古老·忠誠·勇毅",
+      "region": "王领",
+      "seat": "潮头岛"
+    }
+  },
+  "char_larys": {
+    "_id": "char_larys",
+    "name": "larys",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "马修·尼德姆",
+    "bookBio": "弯足——他的脚是坏的——但他的脑子比任何人都快。拉里斯是绿党的情报头子——他知道每个人最深的秘密。传说他杀死了自己的父亲和兄长——赫伦堡大火——是谁放的火。他是血龙狂舞中最阴险的幕后操盘手。当所有人都在看龙的时候——他在看人。",
+    "showBio": "S1-2。马修·尼德姆饰演。剧中增加了恋足癖等原创设定。",
+    "differences": [
+      {
+        "aspect": "角色塑造",
+        "book": "更神秘——动机深藏不露。",
+        "show": "增加了更多个人特征。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "血与火"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "斯壮",
+      "绿党",
+      "血龙狂舞"
+    ],
+    "relatedCharacters": [
+      "char_alicent",
+      "char_aegon_ii"
+    ],
+    "_house": null
+  },
+  "char_harwin": {
+    "_id": "char_harwin",
+    "name": "harwin",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "瑞安·科尔",
+    "bookBio": "碎骨人——他是七国最强的男人——能徒手捏碎骨头。都城守备队司令——据传是雷妮拉的秘密情人——她的三个儿子的实际父亲。他们都有棕色的头发和棕色的眼睛——没有一丝银金色。在赫伦堡大火中与父亲一同丧生——斯壮家族在一夜之间化为了灰烬。",
+    "showBio": "S1。剧中明确展现他与雷妮拉的亲密关系——相比原著更直接。",
+    "differences": [
+      {
+        "aspect": "关系呈现",
+        "book": "暗示——每个人都知道但没人能证明。",
+        "show": "明确展现亲密关系。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "血与火"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "斯壮",
+      "黑党",
+      "血龙狂舞"
+    ],
+    "relatedCharacters": [
+      "char_rhaenyra",
+      "char_larys"
+    ],
+    "_house": null
+  },
+  "char_mysaria": {
+    "_id": "char_mysaria",
+    "name": "mysaria",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "水野索诺娅",
+    "bookBio": "来自里斯的舞女——她曾是戴蒙·坦格利安的情妇——但她后来的力量远不止于此。建立自己的情报网络——白蛆——君临最危险的女人之一。血龙狂舞中支持黑党——她知道君临的每一条地下通道。传说她被暴民处决——在尖叫中死去了。",
+    "showBio": "S1-2。水野索诺娅饰演。剧中角色大幅扩充——成为更核心的政治角色。",
+    "differences": [
+      {
+        "aspect": "角色重要性",
+        "book": "相对边缘——一个黑暗的情报贩子。",
+        "show": "大幅扩充——成为核心政治角色。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "血与火"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "黑党",
+      "血龙狂舞"
+    ],
+    "relatedCharacters": [
+      "char_daemon",
+      "char_rhaenyra"
+    ],
+    "_house": null
+  },
+  "char_cregan": {
+    "_id": "char_cregan",
+    "name": "cregan",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "汤姆·泰勒",
+    "bookBio": "血龙狂舞时期的临冬城公爵——他只有二十三岁——但已经像老狼一样睿智。与杰卡里斯·瓦列利安签订冰与火条约——支持黑党换取坦格利安公主的婚约。战后做了六天首相——他处决了所有叛徒——然后回家了。他不属于南方——他是北境的狼。",
+    "showBio": "S2。汤姆·泰勒饰演。剧中年龄上调——与杰卡里斯在临冬城的互动被扩充。",
+    "differences": [
+      {
+        "aspect": "剧中呈现",
+        "book": "主要出现在战后——六天首相。",
+        "show": "临冬城场景扩充——与杰卡里斯的互动更多。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "血与火"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "史塔克",
+      "黑党",
+      "血龙狂舞"
+    ],
+    "relatedCharacters": [
+      "char_jacaerys"
+    ],
+    "_house": {
+      "name": "史塔克家族",
+      "sigil": "冰原狼",
+      "words": "凛冬将至",
+      "region": "北境",
+      "seat": "临冬城"
+    }
+  },
+  "char_daeron_i": {
+    "_id": "char_daeron_i",
+    "name": "daeron i",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "",
+    "bookBio": "少年龙王——十四岁登基。他是第一个征服多恩的坦格利安——但我没能守住它。他写了《多恩征服记》——他的书比他的统治更长命。在多恩谈判时被背信弃义杀害——他穿着一身白衣去谈判——他以为白旗会保护他。他死时只有十八岁——他征服了一个王国——但没能活到十九岁。",
+    "showBio": "未在正传剧中出现。他的名字偶尔被提及。",
+    "differences": [
+      {
+        "aspect": "未呈现",
+        "book": "重要历史人物——少年征服者的传奇。",
+        "show": "剧中未出现。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "冰与火之歌世界集"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "坦格利安",
+      "国王",
+      "多恩"
+    ],
+    "relatedCharacters": [],
+    "_house": {
+      "name": "坦格利安家族",
+      "sigil": "三头龙",
+      "words": "血火同源",
+      "region": "王领",
+      "seat": "君临"
+    }
+  },
+  "char_baelor_i": {
+    "_id": "char_baelor_i",
+    "name": "baelor i",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "",
+    "bookBio": "受神恩宠的贝勒——最虔诚的国王。他赤脚走到多恩——不带武器——不带军队——只用祈祷和禁食换来了和平。建造贝勒大圣堂——白色大理石、七座水晶高塔。将君临的妓女全部驱逐——禁食祈祷四十天——当他被发现时——他已经饿死了。他的膝盖上放着《七星圣经》。",
+    "showBio": "仅在提及中出现。贝勒大圣堂作为他的遗产在剧集中被多次展示——直至S6被炸毁。",
+    "differences": [
+      {
+        "aspect": "未呈现",
+        "book": "重要历史人物。",
+        "show": "仅在提及中出现。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "冰与火之歌世界集"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "坦格利安",
+      "国王",
+      "七神信仰"
+    ],
+    "relatedCharacters": [],
+    "_house": {
+      "name": "坦格利安家族",
+      "sigil": "三头龙",
+      "words": "血火同源",
+      "region": "王领",
+      "seat": "君临"
+    }
+  },
+  "char_aegon_iv": {
+    "_id": "char_aegon_iv",
+    "name": "aegon iv",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "",
+    "bookBio": "庸王——坦格利安王朝最堕落的国王。他的一生就是对享乐的追求——权力只是他的玩具。拥有无数情妇和私生子。临终前合法化所有私生子——他送出的最后一份礼物是他最恶毒的一份。将祖传瓦雷利亚钢剑黑火赠予戴蒙·黑火——这把剑带来了五代人的血。",
+    "showBio": "未在正传剧中出现。他的决定是黑火叛乱的根源。",
+    "differences": [
+      {
+        "aspect": "未呈现",
+        "book": "关键历史人物——他的临终决定是百年动乱的起点。",
+        "show": "仅在提及中出现。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "冰与火之歌世界集"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "坦格利安",
+      "国王",
+      "黑火"
+    ],
+    "relatedCharacters": [
+      "char_egg"
+    ],
+    "_house": {
+      "name": "坦格利安家族",
+      "sigil": "三头龙",
+      "words": "血火同源",
+      "region": "王领",
+      "seat": "君临"
+    }
+  },
+  "char_aerion": {
+    "_id": "char_aerion",
+    "name": "aerion",
+    "aliases": [],
+    "houseId": null,
+    "titles": [],
+    "status": "unknown",
+    "culture": "未知",
+    "actorName": "",
+    "bookBio": "伊耿五世（伊戈）的兄长——他的疯狂是所有坦格利安中最可怕的一种——他不仅相信自己是龙——他试图用野火来证明这一点。在《雇佣骑士》中欺负平民——被邓克打倒。最终喝下野火——他相信自己会变成龙——野火烧穿了他的喉咙——他不是龙——他只是一个人——一个疯子。",
+    "showBio": "《七王国的骑士》即将登场——将是剧集的关键反派之一。",
+    "differences": [
+      {
+        "aspect": "即将呈现",
+        "book": "《雇佣骑士》中的关键反派。",
+        "show": "即将在《七王国的骑士》中登场。"
+      }
+    ],
+    "appearedIn": {
+      "books": [
+        "七王国的骑士"
+      ],
+      "seasons": []
+    },
+    "tags": [
+      "坦格利安",
+      "疯狂",
+      "野火"
+    ],
+    "relatedCharacters": [
+      "char_egg",
+      "char_dunk"
+    ],
+    "_house": {
+      "name": "坦格利安家族",
+      "sigil": "三头龙",
+      "words": "血火同源",
+      "region": "王领",
+      "seat": "君临"
+    }
   }
 };
 module.exports={PROFILES};
