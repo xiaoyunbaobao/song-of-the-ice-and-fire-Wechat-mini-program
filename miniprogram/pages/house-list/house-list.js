@@ -39,9 +39,14 @@ Page({
     });
 
     if (result.data.length > 0) {
-      let houses = append
+      let houses = (append
         ? [...this.data.houses, ...result.data]
-        : result.data;
+        : result.data).map(h => ({
+          ...h,
+          img: h.img && h.img.startsWith('/images/')
+            ? h.img.replace('/images/', 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/')
+            : h.img
+        }));
 
       // 关键词筛选
       if (keyword) {
@@ -94,7 +99,7 @@ Page({
       {
         _id: 'house_stark',
         name: '史塔克家族',
-        sigil: '🐺', img: '/images/houses/House_Stark.jpg',
+        sigil: '🐺', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Stark.jpg',
         sigilName: '冰原狼',
         words: '凛冬将至',
         region: '北境',
@@ -106,7 +111,7 @@ Page({
       {
         _id: 'house_lannister',
         name: '兰尼斯特家族',
-        sigil: '🦁', img: '/images/houses/House_Lannister.jpg',
+        sigil: '🦁', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Lannister.jpg',
         sigilName: '雄狮',
         words: '听我怒吼',
         region: '西境',
@@ -118,7 +123,7 @@ Page({
       {
         _id: 'house_targaryen',
         name: '坦格利安家族',
-        sigil: '🐉', img: '/images/houses/House_Targaryen.jpg',
+        sigil: '🐉', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Targaryen.jpg',
         sigilName: '三头龙',
         words: '血火同源',
         region: '王领（原）',
@@ -130,7 +135,7 @@ Page({
       {
         _id: 'house_baratheon',
         name: '拜拉席恩家族',
-        sigil: '🦌', img: '/images/houses/Baratheon_DS.jpg',
+        sigil: '🦌', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/Baratheon_DS.jpg',
         sigilName: '宝冠雄鹿',
         words: '怒火燎原',
         region: '风暴地',
@@ -142,7 +147,7 @@ Page({
       {
         _id: 'house_greyjoy',
         name: '葛雷乔伊家族',
-        sigil: '🐙', img: '/images/houses/House_Greyjoy.jpg',
+        sigil: '🐙', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Greyjoy.jpg',
         sigilName: '海怪',
         words: '强取胜于苦耕',
         region: '铁群岛',
@@ -154,7 +159,7 @@ Page({
       {
         _id: 'house_arryn',
         name: '艾林家族',
-        sigil: '🦅', img: '/images/houses/House_Arryn.jpg',
+        sigil: '🦅', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Arryn.jpg',
         sigilName: '新月猎鹰',
         words: '高如荣誉',
         region: '谷地',
@@ -166,7 +171,7 @@ Page({
       {
         _id: 'house_martell',
         name: '马泰尔家族',
-        sigil: '☀️', img: '/images/houses/House_Martell.jpg',
+        sigil: '☀️', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Martell.jpg',
         sigilName: '长枪贯日',
         words: '不屈不挠',
         region: '多恩',
@@ -178,7 +183,7 @@ Page({
       {
         _id: 'house_tully',
         name: '徒利家族',
-        sigil: '🐟', img: '/images/houses/House_Tully.jpg',
+        sigil: '🐟', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Tully.jpg',
         sigilName: '银色鳟鱼',
         words: '家族、责任、荣誉',
         region: '河间地',
@@ -190,7 +195,7 @@ Page({
       {
         _id: 'house_tyrell',
         name: '提利尔家族',
-        sigil: '🌹', img: '/images/houses/House_Tyrell.jpg',
+        sigil: '🌹', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Tyrell.jpg',
         sigilName: '金色玫瑰',
         words: '生生不息',
         region: '河湾地',
@@ -203,7 +208,7 @@ Page({
       {
         _id: 'house_bolton',
         name: '波顿家族',
-        sigil: '🚩', img: '/images/houses/House_Bolton.jpg',
+        sigil: '🚩', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Bolton.jpg',
         sigilName: '剥皮人',
         words: '吾刃锐利',
         region: '北境',
@@ -215,7 +220,7 @@ Page({
       {
         _id: 'house_frey',
         name: '佛雷家族',
-        sigil: '🏰', img: '/images/houses/House_Frey.jpg',
+        sigil: '🏰', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Frey.jpg',
         sigilName: '双塔',
         words: '（无正式族语）',
         region: '河间地',
@@ -227,7 +232,7 @@ Page({
       {
         _id: 'house_mormont',
         name: '莫尔蒙家族',
-        sigil: '🐻', img: '/images/houses/House_Mormont.jpg',
+        sigil: '🐻', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Mormont.jpg',
         sigilName: '熊',
         words: '昂首屹立',
         region: '北境',
@@ -239,7 +244,7 @@ Page({
       {
         _id: 'house_tarly',
         name: '塔利家族',
-        sigil: '🏹', img: '/images/houses/Tarly.jpg',
+        sigil: '🏹', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/Tarly.jpg',
         sigilName: '猎人',
         words: '率先冲锋',
         region: '河湾地',
@@ -251,7 +256,7 @@ Page({
       {
         _id: 'house_reed',
         name: '黎德家族',
-        sigil: '🦎', img: '/images/houses/House_Reed.jpg',
+        sigil: '🦎', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Reed.jpg',
         sigilName: '灰沼蜥狮',
         words: '（不详）',
         region: '北境',
@@ -263,7 +268,7 @@ Page({
       {
         _id: 'house_clegane',
         name: '克里冈家族',
-        sigil: '🐕', img: '/images/houses/House_Clegane.jpg',
+        sigil: '🐕', img: 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Clegane.jpg',
         sigilName: '三黑犬',
         words: '（无）',
         region: '西境',
@@ -276,7 +281,7 @@ Page({
         _id:'house_velaryon', name:'瓦列利安家族', sigil:'🌊', sigilName:'海马',
         words:'古老·忠誠·勇毅', region:'王领', seat:'潮头岛',
         overlord:'坦格利安家族',
-        img:'/images/houses/House_Velaryon2.jpg',
+        img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Velaryon2.jpg',
         description:'瓦列利安家族是瓦雷利亚血统的古老家族，统治潮头岛。海蛇科利斯·瓦列利安是维斯特洛史上最伟大的航海家，曾九次远航至厄斯索斯尽头。血龙狂舞时期与雷妮拉·坦格利安结盟。',
         sigilColor:'#3cb4b4'
       }

@@ -13,7 +13,7 @@ const REGIONS = [
     charLinks:['char_jon_snow','char_tormund']
   },
   {
-    id:'the_north', name:'北境', icon:'🐺', img:'/images/houses/House_Stark.jpg', map:'颈泽以北',
+    id:'the_north', name:'北境', icon:'🐺', img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Stark.jpg', map:'颈泽以北',
     overview:'北境是七国中面积最大、人口最稀少的地区。先民血统在这里保存最完好——史塔克家族作为北境之王统治了八千年。"北境人记得——他们记得长夜、记得异鬼、记得先民与森林之子的盟约。"',
     religion:{name:'旧神',desc:'北境是七国中唯一主要信仰旧神的地区。临冬城的神木林中那棵古老的鱼梁木——"它的树干粗如马车，树皮苍白如骨，树叶深红如血。"南方的七神圣堂在此几乎不存在。'},
     customs:[
@@ -26,7 +26,7 @@ const REGIONS = [
     charLinks:['char_eddard_stark','char_robb_stark']
   },
   {
-    id:'iron_islands', name:'铁群岛', icon:'🐙', img:'/images/houses/House_Greyjoy.jpg', map:'西海群岛',
+    id:'iron_islands', name:'铁群岛', icon:'🐙', img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Greyjoy.jpg', map:'西海群岛',
     overview:'铁群岛——风暴肆虐的贫瘠群岛。铁民自称"铁种"——"我们不播种，我们不收割。我们用铁来获得一切。"古道传统赋予他们掠夺的权利——"强取胜于苦耕"是他们的信条。',
     religion:{name:'淹神信仰',desc:'淹神与风暴神永恒争斗。受洗仪式：被淹人按入海水中"杀死"再"复活"——"逝者不死，必将再起，其势更烈。"淹神牧师（淹人）不穿袍服——只用海草和海盐装饰。'},
     customs:[
@@ -39,7 +39,7 @@ const REGIONS = [
     charLinks:['char_asha','char_euron','char_theon_greyjoy','char_victarion']
   },
   {
-    id:'riverlands', name:'河间地', icon:'🐟', img:'/images/houses/House_Tully.jpg', map:'三叉戟河流域',
+    id:'riverlands', name:'河间地', icon:'🐟', img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Tully.jpg', map:'三叉戟河流域',
     overview:'河间地是七国的中心——肥沃的河流平原，也是最不幸的地区。"每当七国打仗，河间地都在中间。"徒利家族的族语"家族·责任·荣誉"——他们更擅长维持和平而非发动战争。',
     religion:{name:'七神信仰',desc:'河间地主流信仰七神。奔流城的圣堂是七神信仰的典型建筑——但规模无法与旧镇繁星圣堂或君临贝勒大圣堂相比。旧神信仰在部分沼泽地区仍有保留。'},
     customs:[
@@ -51,7 +51,7 @@ const REGIONS = [
     charLinks:['char_catelyn_stark']
   },
   {
-    id:'the_vale', name:'谷地', icon:'🦅', img:'/images/houses/House_Arryn.jpg', map:'明月山脉',
+    id:'the_vale', name:'谷地', icon:'🦅', img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Arryn.jpg', map:'明月山脉',
     overview:'谷地——群山环绕的肥沃山谷，鹰巢城高踞巨人之枪顶峰。"谷地是七国中最难攻破的王国——你只需要守住血门。"艾林家族的族语"高如荣誉"——谷地骑士被视为最骄傲的战士。',
     religion:{name:'七神信仰',desc:'谷地是安达尔人最早登陆的地点——"七星舰队"在五指半岛靠岸。七神信仰在谷地的根基最为深厚——鹰巢城的圣堂是七国中最美丽的圣堂之一。'},
     customs:[
@@ -63,7 +63,7 @@ const REGIONS = [
     charLinks:['char_littlefinger']
   },
   {
-    id:'westerlands', name:'西境', icon:'🦁', img:'/images/houses/House_Lannister.jpg', map:'凯岩城周边',
+    id:'westerlands', name:'西境', icon:'🦁', img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Lannister.jpg', map:'凯岩城周边',
     overview:'西境——黄金与雄狮之地。"兰尼斯特家族坐在一座金矿上。"凯岩城不是在山上修建的——它就是在山里面，一块巨大的岩石被雕刻成城堡。西境人以骄傲和富庶闻名。',
     religion:{name:'七神信仰',desc:'西境主流信仰七神。兰尼斯特家族以慷慨捐赠教会闻名——"黄金可以买到七神的祝福。"但大部分捐赠更接近政治交易而非虔诚信仰。'},
     customs:[
@@ -75,7 +75,7 @@ const REGIONS = [
     charLinks:['char_tywin_lannister','char_cersei_lannister','char_jaime_lannister','char_tyrion_lannister']
   },
   {
-    id:'crownlands', name:'王领', icon:'👑', img:'/images/houses/House_Targaryen.jpg', map:'黑水河流域',
+    id:'crownlands', name:'王领', icon:'👑', img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Targaryen.jpg', map:'黑水河流域',
     overview:'王领——坦格利安王朝的腹地。征服者伊耿在黑水河口建立了君临——维斯特洛最大的城市、权力的心脏。"君临臭气熏天但每个人都在往那里跑——权力在哪里，人群就在哪里。"',
     religion:{name:'七神信仰',desc:'贝勒大圣堂曾是七神信仰的世界中心——白色大理石、七座水晶高塔——直至瑟曦·兰尼斯特用野火将其炸毁。总主教在此坐镇，麻雀教团在此兴起。'},
     customs:[
@@ -87,7 +87,7 @@ const REGIONS = [
     charLinks:['char_varys','char_davos']
   },
   {
-    id:'stormlands', name:'风暴地', icon:'🦌', img:'/images/houses/Baratheon_DS.jpg', map:'风息堡周边',
+    id:'stormlands', name:'风暴地', icon:'🦌', img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/Baratheon_DS.jpg', map:'风息堡周边',
     overview:'风暴地——"诸神在此练习他们的愤怒。"常年风暴肆虐的海岸、坚固的城堡和骄傲的人民。拜拉席恩家族——"怒火燎原"——他们的脾气如他们统治的土地一样狂暴。',
     religion:{name:'七神信仰',desc:'风暴地主流信仰七神。风息堡的圣堂被闪电击中过三次——"诸神似乎也不怕风暴之地的暴风。"'},
     customs:[
@@ -99,7 +99,7 @@ const REGIONS = [
     charLinks:['char_robert_baratheon','char_stannis','char_renly']
   },
   {
-    id:'the_reach', name:'河湾地', icon:'🌹', img:'/images/houses/House_Tyrell.jpg', map:'曼德河流域',
+    id:'the_reach', name:'河湾地', icon:'🌹', img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Tyrell.jpg', map:'曼德河流域',
     overview:'河湾地——富庶的花园王国。旧镇是维斯特洛最古老的城市，学城和繁星圣堂在这里。高庭——提利尔家族的所在地——被玫瑰花园环绕。"在河湾地，连战争都是在比武场上进行的。"',
     religion:{name:'七神信仰',desc:'河湾地是七神信仰的心脏——旧镇的繁星圣堂是总主教的最初座堂。学城的学士们在此研究和记录。"在旧镇，信仰和知识是同一枚硬币的两面。"'},
     customs:[
@@ -111,7 +111,7 @@ const REGIONS = [
     charLinks:['char_margaery','char_olenna']
   },
   {
-    id:'dorne', name:'多恩', icon:'☀️', img:'/images/houses/House_Martell.jpg', map:'最南端半岛',
+    id:'dorne', name:'多恩', icon:'☀️', img:'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/House_Martell.jpg', map:'最南端半岛',
     overview:'多恩——维斯特洛最南端的王国，也是最不同的王国。它是七国中唯一没有被龙火征服的土地。洛伊拿人的影响使多恩保留男女平等继承法、辛辣食物和独特的宽容文化。"多恩人没有忘记——他们只是学会了另一种方式生存。"',
     religion:{name:'七神信仰（含洛伊拿传统）',desc:'多恩信仰七神——但融合了洛伊拿人的母系传统和洛恩河母神崇拜。男女平等继承权是多恩最独特的法律——"在多恩，土地和头衔不会因为你是女人就绕着你走。"'},
     customs:[

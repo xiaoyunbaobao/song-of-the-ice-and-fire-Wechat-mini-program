@@ -3,7 +3,7 @@
  * 角色 / 家族 / 事件 / 百科词条 全在这里改
  * character-list.js / search.js 都从此导入
  */
-const IMG_H = '/images/houses/';
+const IMG_H = 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/';
 
 // ========== 角色（唯一主数据，55人）==========
 const CHARACTERS = [

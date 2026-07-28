@@ -237,6 +237,7 @@
 }
 
 /* === 分类卡片 === */
+.westeros-map { width:100%; border-radius:12rpx; margin-top:8rpx; }
 .category-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

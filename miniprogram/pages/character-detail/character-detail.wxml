@@ -17,7 +17,8 @@
     <!-- 家族信息 -->
     <view class="hero-house card-inner" wx:if="{{character._house}}" bindtap="onHouseTap">
       <view class="house-sigil">
-        {{character._house.sigil === '冰原狼' ? '🐺' : character._house.sigil === '三头龙' ? '🐉' : character._house.sigil === '雄狮' ? '🦁' : '🏰'}}
+        <image wx:if="{{character._house.img}}" class="house-sigil-img" src="{{character._house.img}}" mode="aspectFit" />
+        <text wx:else>{{character._house.sigil === '冰原狼' ? '🐺' : character._house.sigil === '三头龙' ? '🐉' : character._house.sigil === '雄狮' ? '🦁' : '🏰'}}</text>
       </view>
       <view class="house-detail">
         <view class="house-name text-gold">{{character._house.name}}</view>

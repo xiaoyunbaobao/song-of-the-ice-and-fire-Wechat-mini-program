@@ -72,6 +72,7 @@
   background: rgba(212,168,83,0.1);
 }
 
+.house-sigil-img { width:56rpx; height:56rpx; border-radius:50%; }
 .house-sigil {
   font-size: 48rpx;
   margin-right: 16rpx;

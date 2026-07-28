@@ -6,13 +6,13 @@
 
 .images-section { margin-bottom:24rpx; }
 .image-card { padding:8rpx; margin-bottom:16rpx; }
-.article-img { width:100%; display:block; border-radius:12rpx; }
+.article-img { max-width:85%; display:block; border-radius:12rpx; margin:0 auto; }
 
 .content { padding:28rpx; margin-bottom:24rpx; }
 .article-text { line-height:2; }
 
-.img-block { margin:24rpx 0; }
-.article-img { width:100%; display:block; border-radius:12rpx; }
+.img-block { margin:24rpx 0; text-align:center; }
+.article-img { max-width:85%; display:block; border-radius:12rpx; margin:0 auto; }
 .img-caption-placeholder { text-align:center; padding:16rpx 0 8rpx; font-size:24rpx; font-style:italic; }
 .img-caption { text-align:center; padding:16rpx 0 8rpx; line-height:1.8; }
 

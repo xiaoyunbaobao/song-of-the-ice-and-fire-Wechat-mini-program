@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "diff-compare": "/components/diff-compare/diff-compare"
-  },
-  "navigationBarTitleText": "书剧差异"
-}

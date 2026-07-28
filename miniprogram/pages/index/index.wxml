@@ -28,31 +28,15 @@
     <search-bar placeholder="搜索角色、家族、事件..." bindsearch="onSearch" />
   </view>
 
-  <!-- 维斯特洛交互地图 -->
+  <!-- 维斯特洛大陆 -->
   <view class="section">
     <view class="section-header">
       <text class="section-title">维斯特洛大陆</text>
     </view>
-    <!-- 区域索引导航 -->
-    <scroll-view class="region-tabs-scroll" scroll-x="true">
-      <view class="region-tabs">
-        <text
-          wx:for="{{regionTabs}}" wx:key="id"
-          class="region-tab {{activeMapRegion === item.id ? 'active' : ''}}"
-          data-id="{{item.id}}"
-          bindtap="onRegionTab"
-        >{{item.name}}</text>
-      </view>
-    </scroll-view>
-    <!-- 地图 -->
-    <map-interactive
-      base-map="/images/map/westeros.jpg"
-      offset-y="{{mapOffsetY}}"
-      active-region="{{activeMapRegion}}"
-    />
+    <image class="westeros-map" src="https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/map/westeros.jpg" mode="widthFix" />
   </view>
 
-  <!-- 探索维斯特洛 -->
+<!-- 探索维斯特洛 -->
   <view class="section">
     <view class="section-header">
       <text class="section-title">探索维斯特洛</text>

@@ -3,7 +3,7 @@
  * 来源：乔治·R·R·马丁历年访谈、博客、座谈会发言
  */
 const { getCloudImg } = require('../../utils/cloud-img');
-const MARTIN_BG = 'images/banner-martin/';
+const MARTIN_BG = 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner-martin/';
 Page({
   data: {
     loading: false,
@@ -41,7 +41,9 @@ Page({
       MARTIN_BG+'f10bc63c56942bbca0970e36818f410b.jpg',
       MARTIN_BG+'f924785003b326fe77e299f41bda2e1f.jpg'
     ];
-    this.setData({ bannerRow1: imgs.map(i => getCloudImg(i)), bannerRow2: [...imgs].reverse().map(i => getCloudImg(i)) });
+    const cis = imgs.map(i => getCloudImg(i.replace('https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/', 'images/')));
+    const urls = cis;
+    this.setData({ bannerRow1: urls, bannerRow2: [...urls].reverse() });
   },
 
   loadEntries() {

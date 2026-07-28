@@ -1,10 +1,8 @@
-// 云存储图片路径工具
-// 用法: getCloudImg('images/banner-timeline/xxx.jpg')
-const CLOUD_ENV = 'cloud1-1g5ys3sne8db5912';
+// CDN 直链工具
+const CDN_BASE = 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/';
 
 function getCloudImg(relativePath) {
-  // 云存储 fileID 格式: cloud://env-id.xxx/path
-  return `cloud://${CLOUD_ENV}.636c-${CLOUD_ENV}-1419585064/${relativePath}`;
+  return CDN_BASE + relativePath;
 }
 
-module.exports = { getCloudImg, CLOUD_ENV };
+module.exports = { getCloudImg };

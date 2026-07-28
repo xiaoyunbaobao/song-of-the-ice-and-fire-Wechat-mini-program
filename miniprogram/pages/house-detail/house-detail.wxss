@@ -1,8 +1,10 @@
 /* === 家族详情页 === */
 .page {
   padding: 24rpx;
+  padding-bottom: 120rpx;
   background: var(--bg-primary);
   min-height: 100vh;
+  overflow-y: auto;
 }
 
 /* ===== 英雄区域 ===== */

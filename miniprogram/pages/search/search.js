@@ -66,7 +66,7 @@ Page({
     const lower = keyword.toLowerCase();
 
     const matchArticles = WIKI_TOPICS.filter(a =>
-      a.title.includes(keyword) || a.topic.includes(keyword) || a.category.includes(keyword)
+      a.title.includes(keyword) || a.topic.includes(keyword) || a.category.includes(keyword) || (a.summary && a.summary.includes(keyword))
     );
 
     const matchChars = CHARACTERS.filter(c =>

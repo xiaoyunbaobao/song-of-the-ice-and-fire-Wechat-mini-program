@@ -2,7 +2,7 @@
  * 家族徽章与图标映射
  * sigil: emoji 兜底 / img: 正式家徽图片路径
  */
-const SIGIL_PATH = '/images/houses/';
+const SIGIL_PATH = 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/';
 
 const HOUSE_ICONS = {
   house_stark:     { sigil:'🐺', name:'冰原狼',   color:'#7ec8e3', img: SIGIL_PATH+'House_Stark.jpg',       bg:'linear-gradient(135deg, #1a2a3e, #0d1b2a)' },

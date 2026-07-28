@@ -10,24 +10,24 @@ Page({
     activeMapRegion: '',
     // Banner 书卷瀑布流（两排不同速度）
     bannerRow1: [
-      '/images/banner/AGameOfThrones1.jpg',
-      '/images/banner/AClashOfKings.jpg',
-      '/images/banner/AStormOfSwords.jpg',
-      '/images/banner/AFeastForCrows.jpg',
-      '/images/banner/ADanceWithDragons.jpg',
-      '/images/banner/Blood_and_fire_cover_uk.jpg',
-      '/images/banner/KNIGHT of the seven kingdoms.jpg',
-      '/images/banner/Twow_cover.jpg'
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/AGameOfThrones1.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/AClashOfKings.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/AStormOfSwords.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/AFeastForCrows.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/ADanceWithDragons.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/Blood_and_fire_cover_uk.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/KNIGHT of the seven kingdoms.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/Twow_cover.jpg'
     ],
     bannerRow2: [
-      '/images/banner/Blood_and_fire_cover_uk.jpg',
-      '/images/banner/KNIGHT of the seven kingdoms.jpg',
-      '/images/banner/AGameOfThrones1.jpg',
-      '/images/banner/AStormOfSwords.jpg',
-      '/images/banner/Twow_cover.jpg',
-      '/images/banner/AClashOfKings.jpg',
-      '/images/banner/ADanceWithDragons.jpg',
-      '/images/banner/AFeastForCrows.jpg'
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/Blood_and_fire_cover_uk.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/KNIGHT of the seven kingdoms.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/AGameOfThrones1.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/AStormOfSwords.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/Twow_cover.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/AClashOfKings.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/ADanceWithDragons.jpg',
+      'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/banner/AFeastForCrows.jpg'
     ],
     regionTabs: [
       { id: 'beyond_wall',  name: '塞外' },

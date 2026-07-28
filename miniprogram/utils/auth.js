@@ -3,7 +3,7 @@
  */
 const STORAGE_KEY = 'asoiaf_user';
 
-const IMG = '/images/houses/';
+const IMG = 'https://636c-cloud1-1g5ys3sne8db5912-1419585064.tcb.qcloud.la/images/houses/';
 const DEFAULT_HOUSE = { id:'none', name:'无旗兄弟会', sigil:'🏴', img:IMG+'Brotherhood_without_banners.jpg' };
 
 const HOUSES = [
