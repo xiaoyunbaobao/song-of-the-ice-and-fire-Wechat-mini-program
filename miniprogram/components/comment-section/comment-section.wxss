@@ -3,7 +3,14 @@
 .section-sub { font-size:22rpx; display:block; margin-bottom:20rpx; }
 
 /* 登录提示 */
-.login-prompt { display:flex; align-items:center; padding:24rpx 28rpx; margin-bottom:20rpx; }
+.login-prompt { display:flex; align-items:center; padding:24rpx 28rpx; margin-bottom:20rpx; position:relative; }
+.login-card { background:#2a1f14; border:1rpx solid #3a2f24; border-radius:16rpx; padding:48rpx 32rpx; margin-bottom:20rpx; text-align:center; }
+.login-card-icon { font-size:56rpx; margin-bottom:16rpx; }
+.login-card-title { font-size:32rpx; color:#d4a853; font-weight:bold; margin-bottom:8rpx; }
+.login-card-sub { font-size:26rpx; color:#c0a060; margin-bottom:16rpx; }
+.login-card-desc { font-size:22rpx; color:#6a5e4e; margin-bottom:32rpx; font-style:italic; }
+.login-card-btn-wrap { display:flex; justify-content:center; }
+.login-card-btn { padding:16rpx 80rpx; font-size:28rpx; color:#1e1812; background:#d4a853; border-radius:40rpx; border:none; font-weight:bold; letter-spacing:4rpx; }
 .login-icon { font-size:44rpx; margin-right:16rpx; }
 .login-text { flex:1; font-size:28rpx; color:var(--text-secondary); }
 .login-arrow { font-size:36rpx; color:var(--text-muted); }

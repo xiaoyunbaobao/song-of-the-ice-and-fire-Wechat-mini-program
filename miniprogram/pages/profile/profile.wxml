@@ -13,13 +13,13 @@
   </view>
 
   <!-- 未登录 -->
-  <view class="user-card card" wx:if="{{!isLogin}}" bindtap="onLogin">
+  <view class="user-card card" wx:if="{{!isLogin}}">
     <view class="profile-avatar-placeholder">👤</view>
     <view class="user-info">
       <text class="user-name text-secondary">点击登录</text>
       <text class="user-desc text-muted">使用微信头像和昵称</text>
     </view>
-    <text class="login-arrow">›</text>
+    <button class="profile-login-btn" open-type="getUserInfo|agreePrivacyAuthorization" bindgetuserinfo="onLoginWechat" bindagreeprivacyauthorization="onAgreePrivacy">微信一键登录</button>
   </view>
 
   <!-- 统计 -->

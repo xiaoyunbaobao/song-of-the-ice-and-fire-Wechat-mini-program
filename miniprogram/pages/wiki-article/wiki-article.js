@@ -4,7 +4,6 @@
  * 支持文字 + 图片，文字内含可点击的次级超链接 + 评论
  */
 const { getCloudImg } = require('../../utils/cloud-img');
-const { saveUser } = require('../../utils/auth');
 
 Page({
   data: {
@@ -66,23 +65,6 @@ Page({
   previewImage(e) {
     const src = e.currentTarget.dataset.src;
     wx.previewImage({ urls: [src], current: src });
-  },
-
-  // 登录
-  onLogin() {
-    wx.getUserProfile({
-      desc: '用于在学城讨论区发表评论',
-      success: (res) => {
-        saveUser(res.userInfo);
-        wx.showToast({ title: '登录成功', icon: 'success' });
-        // 刷新评论区组件
-        const commentSection = this.selectComponent('#commentSection');
-        if (commentSection) commentSection.refresh();
-      },
-      fail: () => {
-        wx.showToast({ title: '需要授权才能参与讨论', icon: 'none' });
-      }
-    });
   },
 
   // ═══════════ 本地词条数据 ═══════════

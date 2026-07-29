@@ -3,11 +3,15 @@
   <view class="section-title">💬 学城讨论区</view>
   <text class="section-sub text-muted">本讨论区仅对七国之民开放 由大学士登记在册 请勿发布违规评论 三眼乌鸦注视着你们</text>
 
-  <!-- 未登录 -->
-  <view class="login-prompt card" wx:if="{{!isLogin}}" bindtap="onLogin">
-    <text class="login-icon">👤</text>
-    <text class="login-text">登录后参与讨论</text>
-    <text class="login-arrow">›</text>
+  <!-- 未登录：讨论区只对七国公民开放 -->
+  <view class="login-card" wx:if="{{!isLogin}}">
+    <view class="login-card-icon">⚔️</view>
+    <view class="login-card-title">学城讨论区</view>
+    <view class="login-card-sub">本讨论区只对七国公民开放</view>
+    <view class="login-card-desc">学士将对您的言论登记在册，三眼乌鸦注视着这里</view>
+    <view class="login-card-btn-wrap">
+      <button class="login-card-btn" open-type="getUserInfo|agreePrivacyAuthorization" bindgetuserinfo="onLoginWechat" bindagreeprivacyauthorization="onAgreePrivacy">确认登录</button>
+    </view>
   </view>
 
   <!-- 已登录：发表区域 -->

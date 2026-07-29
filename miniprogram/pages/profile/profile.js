@@ -72,19 +72,19 @@ Page({
     return (d.getMonth() + 1) + '/' + d.getDate();
   },
 
-  onLogin() {
-    wx.getUserProfile({
-      desc: '用于在学城讨论区参与讨论',
-      success: (res) => {
-        saveUser(res.userInfo);
-        wx.showToast({ title: '登录成功', icon: 'success' });
-        this.refresh();
-      },
-      fail: () => {
-        wx.showToast({ title: '需要成为七国公民才能发表评论', icon: 'none' });
-      }
-    });
+  onLoginWechat(e) {
+    if (e.detail.userInfo) {
+      saveUser({
+        nickName: e.detail.userInfo.nickName || '无名学士',
+        avatarUrl: e.detail.userInfo.avatarUrl || ''
+      });
+      wx.showToast({ title: '登录成功', icon: 'success' });
+      this.refresh();
+    }
   },
+
+  onAgreePrivacy() {},
+  onLogin() {},
 
   onLogout() {
     wx.showModal({

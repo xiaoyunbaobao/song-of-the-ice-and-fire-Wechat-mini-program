@@ -30,7 +30,7 @@
   </view>
 
   <!-- 评论区 -->
-  <comment-section id="commentSection" target-id="{{topic}}" bindlogin="onLogin" />
+  <comment-section id="commentSection" target-id="{{topic}}" />
 </view>
 
 <!-- 未找到 -->

@@ -1,6 +1,7 @@
 .page { background:var(--bg-primary); min-height:100vh; padding:24rpx; }
 
-.user-card { display:flex; align-items:center; padding:28rpx; margin-bottom:24rpx; }
+.user-card { display:flex; align-items:center; padding:28rpx; margin-bottom:24rpx; position:relative; }
+.profile-login-btn { position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; z-index:2; padding:0; margin:0; border:none; background:transparent; }
 .profile-avatar { width:80rpx; height:80rpx; border-radius:50%; margin-right:20rpx; }
 .profile-avatar-placeholder { width:80rpx; height:80rpx; border-radius:50%; margin-right:20rpx; background:var(--bg-card); display:flex; align-items:center; justify-content:center; font-size:40rpx; }
 .user-info { flex:1; }
