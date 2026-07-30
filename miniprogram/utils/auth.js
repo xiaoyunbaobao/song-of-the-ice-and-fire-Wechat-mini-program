@@ -36,6 +36,21 @@ function saveUser(user) {
   // 首次登录默认效忠无旗兄弟会
   if (!merged.house) merged.house = DEFAULT_HOUSE;
   wx.setStorageSync(STORAGE_KEY, merged);
+
+  // 同步到云数据库——方便查看访问用户
+  if (wx.cloud && merged.nickName) {
+    try {
+      const db = wx.cloud.database();
+      db.collection('users').doc(merged.nickName).set({
+        data: {
+          nickName: merged.nickName,
+          avatarUrl: merged.avatarUrl || '',
+          lastLogin: Date.now(),
+          house: merged.house || DEFAULT_HOUSE
+        }
+      }).catch(() => {});
+    } catch(e) {}
+  }
 }
 
 function setHouse(house) {

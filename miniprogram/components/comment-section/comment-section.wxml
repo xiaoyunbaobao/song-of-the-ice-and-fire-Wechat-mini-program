@@ -10,7 +10,7 @@
     <view class="login-card-sub">本讨论区只对七国公民开放</view>
     <view class="login-card-desc">学士将对您的言论登记在册，三眼乌鸦注视着这里</view>
     <view class="login-card-btn-wrap">
-      <button class="login-card-btn" open-type="getUserInfo|agreePrivacyAuthorization" bindgetuserinfo="onLoginWechat" bindagreeprivacyauthorization="onAgreePrivacy">确认登录</button>
+      <button class="login-card-btn" open-type="getUserInfo" bindgetuserinfo="onLoginWechat">确认登录</button>
     </view>
   </view>
 
