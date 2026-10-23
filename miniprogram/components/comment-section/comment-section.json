@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "profile-setup": "/components/profile-setup/profile-setup"
+  }
 }

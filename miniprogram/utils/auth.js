@@ -1,5 +1,7 @@
 /**
- * 用户授权管理
+ * 用户授权管理 v2.0
+ * openid 账号体系（login 云函数）+ 头像昵称主动填写（chooseAvatar/nickname）
+ * 本地缓存仅作登录态镜像，云端 users 文档按 openid 存储
  */
 const STORAGE_KEY = 'asoiaf_user';
 
@@ -30,27 +32,98 @@ function getUser() {
   try { return wx.getStorageSync(STORAGE_KEY) || null; } catch (e) { return null; }
 }
 
-function saveUser(user) {
+function saveUser(user, opts = {}) {
   const existing = getUser();
   const merged = { ...existing, ...user };
   // 首次登录默认效忠无旗兄弟会
   if (!merged.house) merged.house = DEFAULT_HOUSE;
   wx.setStorageSync(STORAGE_KEY, merged);
 
-  // 同步到云数据库——方便查看访问用户
-  if (wx.cloud && merged.nickName) {
-    try {
-      const db = wx.cloud.database();
-      db.collection('users').doc(merged.nickName).set({
-        data: {
-          nickName: merged.nickName,
-          avatarUrl: merged.avatarUrl || '',
-          lastLogin: Date.now(),
-          house: merged.house || DEFAULT_HOUSE
-        }
-      }).catch(() => {});
-    } catch(e) {}
+  // 同步到云端——通过 login 云函数，文档按 openid 存储（fire-and-forget）
+  if (opts.sync !== false && merged.openid && wx.cloud) {
+    wx.cloud.callFunction({
+      name: 'login',
+      data: { profile: {
+        nickName: merged.nickName,
+        avatarFileID: merged.avatarFileID || '',
+        house: merged.house,
+        houseChangedAt: merged.houseChangedAt || null
+      } }
+    }).catch(() => {});
   }
+}
+
+/**
+ * 显式登录（登录按钮）：查云端档案
+ * @returns {user, needProfile:false} | {needProfile:true} | {error:true}
+ */
+async function doLogin() {
+  try {
+    const res = await wx.cloud.callFunction({ name: 'login', data: {} });
+    const r = res.result || {};
+    if (!r.success) throw new Error(r.error || 'login failed');
+    if (r.user) {
+      saveUser(r.user, { sync: false });
+      return { user: r.user, needProfile: false };
+    }
+    return { needProfile: true };
+  } catch (e) {
+    // 网络/云函数异常：有本地登录态则沿用（离线可用）
+    const local = getUser();
+    if (local) return { user: local, needProfile: false };
+    return { error: true };
+  }
+}
+
+/**
+ * 注册/完善资料：头像临时文件上传云存储（失败降级无头像）→ 云函数建档/更新
+ * 不传 avatarTempPath 时不动云端已有头像（编辑资料时未换头像则保留）
+ */
+async function registerProfile({ nickName, avatarTempPath }) {
+  const profile = { nickName };
+  if (avatarTempPath && wx.cloud) {
+    try {
+      const up = await wx.cloud.uploadFile({
+        cloudPath: 'avatars/' + Date.now() + '_' + Math.random().toString(36).slice(2, 8) + '.png',
+        filePath: avatarTempPath
+      });
+      profile.avatarFileID = up.fileID || '';
+    } catch (e) {
+      // 头像可选，上传失败不阻塞注册
+      profile.avatarFileID = '';
+    }
+  }
+  const res = await wx.cloud.callFunction({
+    name: 'login',
+    data: { profile }
+  });
+  const r = res.result || {};
+  if (!r.success || !r.user) throw new Error(r.error || 'register failed');
+  saveUser(r.user, { sync: false });
+  return r.user;
+}
+
+/**
+ * 登录态闸口（页面/组件 refresh 时调用）
+ * - 新体系缓存（有 openid）：直接返回，不发云调用
+ * - 旧版缓存（无 openid）：静默查云端迁移；网络异常沿用旧缓存；云端无档案则作废走新注册
+ */
+async function ensureLogin() {
+  const local = getUser();
+  if (!local) return null;
+  if (local.openid) return local;
+  try {
+    const res = await wx.cloud.callFunction({ name: 'login', data: {} });
+    const r = res.result || {};
+    if (r.success && r.user) {
+      saveUser(r.user, { sync: false });
+      return r.user;
+    }
+  } catch (e) {
+    return local; // 离线沿用旧登录态
+  }
+  logout(); // 旧假数据（"微信用户"）作废
+  return null;
 }
 
 function setHouse(house) {
@@ -65,6 +138,13 @@ function setHouse(house) {
   user.house = house;
   user.houseChangedAt = now;
   wx.setStorageSync(STORAGE_KEY, user);
+  // 同步云端家族与冷却时间（fire-and-forget）
+  if (user.openid && wx.cloud) {
+    wx.cloud.callFunction({
+      name: 'login',
+      data: { profile: { house, houseChangedAt: now } }
+    }).catch(() => {});
+  }
   return { locked: false };
 }
 
@@ -82,4 +162,4 @@ function isLoggedIn() { return !!getUser(); }
 
 function logout() { wx.removeStorageSync(STORAGE_KEY); }
 
-module.exports = { getUser, saveUser, setHouse, canChangeHouse, isLoggedIn, logout, HOUSES, DEFAULT_HOUSE };
+module.exports = { getUser, saveUser, setHouse, canChangeHouse, isLoggedIn, logout, doLogin, registerProfile, ensureLogin, HOUSES, DEFAULT_HOUSE };

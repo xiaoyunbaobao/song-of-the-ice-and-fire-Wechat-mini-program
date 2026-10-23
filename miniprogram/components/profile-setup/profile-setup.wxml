@@ -1,0 +1,16 @@
+<view class="setup-panel">
+  <view class="setup-title">{{mode === 'edit' ? '⚔️ 编辑学士档案' : '⚔️ 登记学士档案'}}</view>
+  <view class="setup-desc">{{mode === 'edit' ? '修改你的名号与头像，学城将重新登记在册' : '头像与名号由你亲自填写，学城将登记在册'}}</view>
+
+  <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image wx:if="{{tempAvatar || initialAvatar}}" class="setup-avatar" src="{{tempAvatar || initialAvatar}}" mode="aspectFill" />
+    <view wx:else class="setup-avatar setup-avatar-placeholder">👤</view>
+    <view class="avatar-hint">{{tempAvatar ? '点击更换头像' : (initialAvatar ? '点击更换头像' : '点击选择头像')}}</view>
+  </button>
+
+  <input class="nick-input" type="nickname" maxlength="20" placeholder="输入你的学士名号" placeholder-class="nick-placeholder" value="{{nickInput}}" bindinput="onNickInput" />
+
+  <button class="setup-confirm" bindtap="onConfirm" disabled="{{submitting}}">{{submitting ? '保存中...' : (mode === 'edit' ? '保存档案' : '加入七国')}}</button>
+
+  <view class="setup-skip" bindtap="onSkip">{{mode === 'edit' ? '取消' : '暂不加入，收起'}}</view>
+</view>

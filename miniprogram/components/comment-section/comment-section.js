@@ -1,7 +1,7 @@
 /**
  * 评论区组件 v3.1 — 隐私合规 + 云数据库多用户共享
  */
-const { isLoggedIn, getUser, saveUser } = require('../../utils/auth');
+const { doLogin, ensureLogin } = require('../../utils/auth');
 
 const SPAM_WORDS = [
   '加微信','加微','微信','VX','vx','WX','wx',
@@ -29,6 +29,7 @@ Component({
   data:{
     comments:[],inputValue:'',isLogin:false,user:null,submitting:false,
     replyToId:'',replyToUser:'',loading:true,
+    showSetup:false,
     showPrivacy:false,privacyResolve:null
   },
 
@@ -39,7 +40,7 @@ Component({
     getDb(){return wx.cloud?wx.cloud.database():null;},
 
     async refresh(){
-      const user=getUser();
+      const user=await ensureLogin();
       this.setData({isLogin:!!user,user:user,loading:true});
       const list=await this.loadComments();
       this.setData({comments:list,loading:false});
@@ -66,31 +67,23 @@ Component({
     },
     saveLocal(list){const all=wx.getStorageSync('asoiaf_comments')||{};all[this.properties.targetId]=list;wx.setStorageSync('asoiaf_comments',all);},
 
-    // ===== 登录：微信原生弹窗 (getUserInfo 自带隐私处理) =====
-    onLoginTap(){},
+    // ===== 登录：openid 账号 + 内联完善资料面板 =====
+    async onLoginTap(){
+      const res=await doLogin();
+      if(res.error){wx.showToast({title:'网络异常，请重试',icon:'none'});return;}
+      if(res.needProfile){this.setData({showSetup:true});return;}
+      wx.showToast({title:'登录成功',icon:'success'});
+      this.refresh();
+    },
 
-    onLoginWechat(e){
-      const that=this;
-      if(e.detail.userInfo){
-        saveUser({
-          nickName:e.detail.userInfo.nickName||'无名学士',
-          avatarUrl:e.detail.userInfo.avatarUrl||''
-        });
-        that.refresh();
-        wx.showToast({title:'登录成功',icon:'success'});
-      }else{
-        // 降级：手动输入昵称
-        wx.showModal({
-          title:'加入七国',
-          content:'输入你的学士名号',
-          editable:true,placeholderText:'如：旧镇的佩特',
-          success:res=>{
-            if(!res.confirm||!res.content)return;
-            saveUser({nickName:res.content.trim().substring(0,10),avatarUrl:''});
-            that.refresh();
-          }
-        });
-      }
+    onSetupDone(){
+      this.setData({showSetup:false});
+      wx.showToast({title:'宣誓成功，欢迎加入七国',icon:'success'});
+      this.refresh();
+    },
+
+    onSetupCancel(){
+      this.setData({showSetup:false});
     },
 
     // ===== 发表评论 =====
@@ -98,14 +91,14 @@ Component({
     async onSubmit(){
       const user=this.data.user;
       if(!user){this.onLoginTap();return;}
-      const userId=user.nickName||'unknown';
+      const userId=user.openid||user.nickName||'unknown'; // 新数据 openid，离线旧缓存回退昵称
       if(!canPost(userId)){wx.showModal({title:'今日发言已达上限',content:'学城学士每日限发'+DAILY_MAX+'条评论。',showCancel:false,confirmText:'知道了'});return;}
       const text=this.data.inputValue.trim();
       if(!text){wx.showToast({title:'请输入内容',icon:'none'});return;}
       if(text.length>500){wx.showToast({title:'不超过500字',icon:'none'});return;}
       if(isSpam(text)){wx.showModal({title:'评论未通过',content:'疑似广告。维斯特洛不欢迎乌鸦的营销。',showCancel:false,confirmText:'知道了'});return;}
       this.setData({submitting:true});
-      const comment={id:genId(),userId,userName:user.nickName||'无名学士',avatar:user.avatarUrl||'',house:user.house||{name:'无旗兄弟会',sigil:'🏴'},content:text,time:Date.now(),likes:0,likedBy:[],replies:[]};
+      const comment={id:genId(),userId,userName:user.nickName||'无名学士',avatar:user.avatarFileID||user.avatarUrl||'',house:user.house||{name:'无旗兄弟会',sigil:'🏴'},content:text,time:Date.now(),likes:0,likedBy:[],replies:[]};
       const list=await this.loadComments();list.unshift(comment);await this.saveComments(list);
       afterPost(userId);
       const remaining=dailyRemaining(userId);
@@ -119,13 +112,13 @@ Component({
     async onSubmitReply(){
       const user=this.data.user;
       if(!user){this.onLoginTap();return;}
-      const userId=user.nickName||'unknown';
+      const userId=user.openid||user.nickName||'unknown'; // 新数据 openid，离线旧缓存回退昵称
       if(!canPost(userId)){wx.showModal({title:'今日发言已达上限',content:'每日限发'+DAILY_MAX+'条（含回复）。',showCancel:false,confirmText:'知道了'});return;}
       const text=this.data.inputValue.trim();
       if(!text){wx.showToast({title:'请输入回复',icon:'none'});return;}
       if(text.length>300){wx.showToast({title:'不超过300字',icon:'none'});return;}
       if(isSpam(text)){wx.showModal({title:'回复未通过',content:'包含违禁词',showCancel:false,confirmText:'知道了'});return;}
-      const reply={id:genId(),userId,userName:user.nickName||'无名学士',avatar:user.avatarUrl||'',house:user.house||{name:'无旗兄弟会',sigil:'🏴'},content:text,time:Date.now(),replyTo:this.data.replyToUser};
+      const reply={id:genId(),userId,userName:user.nickName||'无名学士',avatar:user.avatarFileID||user.avatarUrl||'',house:user.house||{name:'无旗兄弟会',sigil:'🏴'},content:text,time:Date.now(),replyTo:this.data.replyToUser};
       const list=await this.loadComments();
       const parent=list.find(c=>c.id===this.data.replyToId);
       if(parent){parent.replies=(parent.replies||[]);parent.replies.push(reply);}
@@ -140,7 +133,7 @@ Component({
       const{id,rid}=e.currentTarget.dataset;
       const user=this.data.user;
       if(!user){this.onLoginTap();return;}
-      const userId=user.nickName||'unknown';
+      const userId=user.openid||user.nickName||'unknown'; // 新数据 openid，离线旧缓存回退昵称
       const list=await this.loadComments();
       const comment=list.find(c=>c.id===id);
       if(!comment)return;

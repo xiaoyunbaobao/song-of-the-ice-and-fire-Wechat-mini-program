@@ -1,11 +1,16 @@
 <view class="page">
   <!-- 用户信息 -->
   <view class="user-card card" wx:if="{{isLogin}}">
-    <image wx:if="{{user.avatarUrl}}" class="profile-avatar" src="{{user.avatarUrl}}" mode="aspectFill" />
-    <view wx:else class="profile-avatar-placeholder">👤</view>
-    <view class="user-info">
-      <text class="user-name">{{user.nickName}}</text>
-      <text class="user-desc text-muted">学城学士</text>
+    <view class="user-main" bindtap="onEditProfile">
+      <image wx:if="{{user.avatarFileID || user.avatarUrl}}" class="profile-avatar" src="{{user.avatarFileID || user.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="profile-avatar-placeholder">👤</view>
+      <view class="user-info">
+        <view class="user-name-row">
+          <text class="user-name">{{user.nickName}}</text>
+          <text class="edit-hint">✏️</text>
+        </view>
+        <text class="user-desc text-muted">学城学士 · 点击编辑档案</text>
+      </view>
     </view>
     <view class="logout-btn" bindtap="onLogout">
       <text class="text-muted">退出</text>
@@ -13,14 +18,15 @@
   </view>
 
   <!-- 未登录 -->
-  <view class="user-card card" wx:if="{{!isLogin}}">
-    <view class="profile-avatar-placeholder">👤</view>
-    <view class="user-info">
-      <text class="user-name text-secondary">点击登录</text>
-      <text class="user-desc text-muted">使用微信头像和昵称</text>
-    </view>
-    <button class="profile-login-btn" open-type="getUserInfo" bindgetuserinfo="onLoginWechat">微信一键登录</button>
+  <view class="login-hero card" wx:if="{{!isLogin}}">
+    <view class="login-hero-avatar">⚔️</view>
+    <text class="login-hero-title">成为七国公民</text>
+    <text class="login-hero-desc text-muted">登记学士档案，加入七国讨论</text>
+    <button class="profile-login-btn" bindtap="onLoginTap">{{loggingIn ? '登录中...' : '微信一键登录'}}</button>
   </view>
+
+  <!-- 完善资料（新用户注册 / 编辑档案） -->
+  <profile-setup wx:if="{{showSetup}}" mode="{{setupMode}}" initial-nick-name="{{user.nickName}}" initial-avatar="{{user.avatarFileID || user.avatarUrl}}" bind:success="onSetupDone" bind:cancel="onSetupCancel" />
 
   <!-- 统计 -->
   <view class="stats-row" wx:if="{{isLogin}}">

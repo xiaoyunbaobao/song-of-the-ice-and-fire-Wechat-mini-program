@@ -10,9 +10,12 @@
     <view class="login-card-sub">本讨论区只对七国公民开放</view>
     <view class="login-card-desc">学士将对您的言论登记在册，三眼乌鸦注视着这里</view>
     <view class="login-card-btn-wrap">
-      <button class="login-card-btn" open-type="getUserInfo" bindgetuserinfo="onLoginWechat">确认登录</button>
+      <button class="login-card-btn" bindtap="onLoginTap">确认登录</button>
     </view>
   </view>
+
+  <!-- 完善资料（新用户） -->
+  <profile-setup wx:if="{{showSetup}}" bind:success="onSetupDone" bind:cancel="onSetupCancel" />
 
   <!-- 已登录：发表区域 -->
   <view class="comment-form" wx:if="{{isLogin}}">
@@ -21,7 +24,7 @@
       <text class="cancel-reply" bindtap="cancelReply">取消</text>
     </view>
     <view class="form-row">
-      <image wx:if="{{user.avatarUrl}}" class="user-avatar" src="{{user.avatarUrl}}" mode="aspectFill" />
+      <image wx:if="{{user.avatarFileID || user.avatarUrl}}" class="user-avatar" src="{{user.avatarFileID || user.avatarUrl}}" mode="aspectFill" />
       <view wx:else class="user-avatar-placeholder">👤</view>
       <view class="form-right">
         <textarea class="comment-input" placeholder="{{replyToId ? '写下回复...' : '写下你的见解...'}}" placeholder-class="input-placeholder" value="{{inputValue}}" maxlength="{{replyToId ? 300 : 500}}" bindinput="onInput" auto-height />
@@ -60,7 +63,7 @@
           <view class="action-btn" wx:if="{{isLogin}}" data-id="{{item.id}}" data-user="{{item.userName}}" bindtap="onReplyTap">
             <text>💬 回复</text>
           </view>
-          <view class="action-btn" wx:if="{{isLogin && user.nickName === item.userId}}" data-id="{{item.id}}" bindtap="onDelete">
+          <view class="action-btn" wx:if="{{isLogin && (user.openid === item.userId || user.nickName === item.userId)}}" data-id="{{item.id}}" bindtap="onDelete">
             <text>🗑️ 删除</text>
           </view>
         </view>

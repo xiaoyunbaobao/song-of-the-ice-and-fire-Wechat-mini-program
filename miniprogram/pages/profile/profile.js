@@ -1,4 +1,4 @@
-const { getUser, saveUser, setHouse, canChangeHouse, isLoggedIn, logout, HOUSES } = require('../../utils/auth');
+const { getUser, setHouse, canChangeHouse, logout, doLogin, ensureLogin, HOUSES } = require('../../utils/auth');
 
 Page({
   data: {
@@ -8,6 +8,9 @@ Page({
     commentCount: 0,
     houses: HOUSES,
     showHousePicker: false,
+    showSetup: false,
+    setupMode: 'register',
+    loggingIn: false,
     rankLevel: '平民',
     totalLikes: 0,
     houseLocked: false,
@@ -27,8 +30,8 @@ Page({
     return { name:'平民', icon:'👤', color:'#8a7b68' };
   },
 
-  refresh() {
-    const user = getUser();
+  async refresh() {
+    const user = await ensureLogin();
     const comments = this.loadMyComments(user);
     const totalLikes = comments.reduce((sum, c) => sum + (c.likes || 0), 0);
     const rank = this.getRank(comments.length, totalLikes);
@@ -49,14 +52,15 @@ Page({
 
   loadMyComments(user) {
     if (!user) return [];
-    const userId = user.nickName || 'unknown';
+    // 新评论 userId 是 openid，旧评论是昵称——双条件兼容
+    const isMine = c => c.userId === user.openid || c.userId === user.nickName;
     const all = wx.getStorageSync('asoiaf_comments') || {};
     const mine = [];
     Object.keys(all).forEach(topic => {
       (all[topic] || []).forEach(c => {
-        if (c.userId === userId) mine.push({ ...c, _topic: topic, _time: this.fmtTime(c.time) });
+        if (isMine(c)) mine.push({ ...c, _topic: topic, _time: this.fmtTime(c.time) });
         (c.replies || []).forEach(r => {
-          if (r.userId === userId) mine.push({ ...r, _topic: topic, _time: this.fmtTime(r.time) });
+          if (isMine(r)) mine.push({ ...r, _topic: topic, _time: this.fmtTime(r.time) });
         });
       });
     });
@@ -72,19 +76,37 @@ Page({
     return (d.getMonth() + 1) + '/' + d.getDate();
   },
 
-  onLoginWechat(e) {
-    if (e.detail.userInfo) {
-      saveUser({
-        nickName: e.detail.userInfo.nickName || '无名学士',
-        avatarUrl: e.detail.userInfo.avatarUrl || ''
-      });
-      wx.showToast({ title: '登录成功', icon: 'success' });
-      this.refresh();
+  async onLoginTap() {
+    if (this.data.loggingIn) return;
+    this.setData({ loggingIn: true });
+    const res = await doLogin();
+    this.setData({ loggingIn: false });
+    if (res.error) {
+      wx.showToast({ title: '网络异常，请重试', icon: 'none' });
+      return;
     }
+    if (res.needProfile) {
+      this.setData({ showSetup: true, setupMode: 'register' });
+      return;
+    }
+    wx.showToast({ title: '登录成功', icon: 'success' });
+    this.refresh();
   },
 
-  onAgreePrivacy() {},
-  onLogin() {},
+  onEditProfile() {
+    this.setData({ showSetup: true, setupMode: 'edit' });
+  },
+
+  onSetupDone() {
+    const wasEdit = this.data.setupMode === 'edit';
+    this.setData({ showSetup: false });
+    wx.showToast({ title: wasEdit ? '档案已更新' : '宣誓成功，欢迎加入七国', icon: 'success' });
+    this.refresh();
+  },
+
+  onSetupCancel() {
+    this.setData({ showSetup: false });
+  },
 
   onLogout() {
     wx.showModal({
